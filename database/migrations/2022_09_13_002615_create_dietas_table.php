@@ -14,10 +14,11 @@ class CreateDietasTable extends Migration
     public function up()
     {
         Schema::create('dieta', function (Blueprint $table) {
-            $table->id();
+            $table->id('IDDIETA');
             $table->string('NMDIETA', 100);
             $table->string('DSDIETA', 250);
             $table->string('TPUSODIETA', 15);
+            $table->string('NMRACAO', 50);
             $table->string('FLATIVO', 1);
             $table->timestamps();
         });

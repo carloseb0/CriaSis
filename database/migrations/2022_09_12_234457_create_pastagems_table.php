@@ -14,7 +14,7 @@ class CreatePastagemsTable extends Migration
     public function up()
     {
         Schema::create('pastagem', function (Blueprint $table) {
-            $table->id();
+            $table->id('IDPASTAGEM');
             $table->string('NMPASTAGEM', 100);
             $table->string('TPCULTURA', 10);
             $table->date('DALIBERACAO');

@@ -14,7 +14,7 @@ class CreateGestacaosTable extends Migration
     public function up()
     {
         Schema::create('gestacao', function (Blueprint $table) {
-            $table->id();
+            $table->id('IDGESTACAO');
             $table->integer('IDANIMAL');
             $table->date('DAINSEMINACAO');
             $table->date('DANASCIMENTOESTIMADO');

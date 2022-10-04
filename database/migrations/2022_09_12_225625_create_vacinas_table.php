@@ -14,9 +14,9 @@ class CreateVacinasTable extends Migration
     public function up()
     {
         Schema::create('vacinas', function (Blueprint $table) {
-            $table->id();
+            $table->id('IDVACINA');
             $table->string('NMVACINA', 100);
-            $table->string('DSVACINA', 250);
+            $table->string('DSFINALIDADE', 250);
             $table->string('NMFABRICANTE', 100);
             $table->decimal('QTDOSE', $precision = 8, $scale = 2);
             $table->date('DAVALIDADE');
