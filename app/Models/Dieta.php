@@ -9,4 +9,5 @@ class Dieta extends Model
 {
     use HasFactory;
     protected $table = "dieta";
+    protected $fillable = ['NMDIETA', 'DSDIETA', 'TPUSODIETA', 'NMRACAO', 'FLATIVO'];
 }

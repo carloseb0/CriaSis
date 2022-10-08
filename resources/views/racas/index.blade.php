@@ -1,11 +1,11 @@
 @extends('adminlte::page')
 @section('content')
     <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
+        <div class="col-lg-12 margin-tb" style='display: flex; justify-content: space-between;'>
+            <div class="pull-left" style='margin: 10px;'>
                 <h2>Raças</h2>
             </div>
-            <div class="pull-right">
+            <div class="pull-right" style='margin: 10px;'>
                 <a class="btn btn-success" href="{{ route('racas.create') }}">Novo Registro</a>
             </div>
         </div>

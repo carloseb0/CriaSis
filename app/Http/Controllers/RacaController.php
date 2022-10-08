@@ -8,6 +8,7 @@ use App\Models\Raca;
 class RacaController extends Controller
 {
     public function index(){
+        // Como fazer get com wherer : Raca::where('FLATIVO', '=', 'S')->get();
         $arrRacas = Raca::all();
 
         return view('racas.index', ['arrRacas'=>$arrRacas]);

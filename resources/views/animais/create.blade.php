@@ -2,12 +2,12 @@
 
 @section('content')
     <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
+        <div class="col-lg-12 margin-tb" style='display: flex; justify-content: space-between;'>
+            <div class="pull-left" style='margin: 10px;'>
                 <h2>Cadastrar Animal</h2>
             </div>
-            <div class="pull-right">
-                {{-- <a class="btn btn-primary" href="{{ route('products.index') }}"> Voltar</a> --}}
+            <div class="pull-right" style='margin: 10px;'>
+                <a class="btn btn-primary" href="{{ route('animais.index') }}"> Voltar</a>
             </div>
         </div>
     </div>

@@ -290,24 +290,57 @@ return [
     */
 
     'menu' => [
-        ['header' => 'Cadastro'],
         [
-            'text' => 'Animais',
-            'url' => 'animais',
-            'icon' => ''
+            'text' => 'Cadastros',
+            'submenu'=>[
+                [
+                    'text' => 'Animais',
+                    'url' => 'animais',
+                    'icon' => ''
+                ],
+                [
+                    'text' => 'Raça',
+                    'url' => 'racas',
+                    'icon' => ''
+                ],
+                [
+                    'text' => 'Vacina',
+                    'url' => 'vacinas',
+                    'icon' => ''
+                ],
+                [
+                    'text' => 'Dieta',
+                    'url' => 'dietas',
+                    'icon' => ''
+                ],
+                [
+                    'text' => 'Pastagem',
+                    'url' => 'pastagens',
+                    'icon' => ''
+                ],
+            ],
         ],
         [
-            'text' => 'Raça',
-            'url' => 'racas',
-            'icon' => ''
+            'text' => 'Tarefas',
+            'submenu'=>[
+                [
+                    'text' => 'Criação de Lote',
+                    'url' => '###',
+                    'icon' => ''
+                ],
+            ],
         ],
         [
-            'text' => 'Vacina',
-            'url' => 'vacinas',
-            'icon' => ''
+            'text' => 'Relatórios',
+            'submenu'=>[
+                [
+                    'text' => 'Engorda',
+                    'url' => '#',
+                    'icon' => ''
+                ],
+            ],
+
         ],
-        ['header' => 'Tarefas'],
-        ['header' => 'Relatórios'],
     ],
 
     /*

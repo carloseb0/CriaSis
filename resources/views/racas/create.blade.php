@@ -3,12 +3,12 @@
     
 @section('content')
     <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
+        <div class="col-lg-12 margin-tb" style='display: flex; justify-content: space-between;'>
+            <div class="pull-left" style='margin: 10px;'>
                 <h2>Cadastro Raças</h2>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('raca.index') }}"> Voltar</a>
+            <div class="pull-right" style='margin: 10px;'>
+                <a class="btn btn-primary" href="{{ route('racas.index') }}"> Voltar</a>
             </div>
         </div>
     </div>

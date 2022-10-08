@@ -4,10 +4,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb" style='display: flex; justify-content: space-between;'>
             <div class="pull-left" style='margin: 10px;'>
-                <h2>Cadastrar Vacina</h2>
+                <h2>Cadastrar Dieta</h2>
             </div>
             <div class="pull-right" style='margin: 10px;'>
-                <a class="btn btn-primary" href="{{ route('vacinas.index') }}"> Voltar</a>
+                <a class="btn btn-primary" href="{{ route('dietas.index') }}"> Voltar</a>
             </div>
         </div>
     </div>
@@ -20,37 +20,37 @@
         </ul>
     @endif
 
-    {!! Form::open(['url'=>'vacinas/store']) !!}
+    {!! Form::open(['url'=>'dietas/store']) !!}
 
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                {!! Form::label('NMVACINA', 'Nome')!!}   
-                {!! Form::text('NMVACINA', null, ['class'=>'form-control', 'required']) !!}
+                {!! Form::label('NMDIETA', 'Nome')!!}   
+                {!! Form::text('NMDIETA', null, ['class'=>'form-control', 'required']) !!}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                {!! Form::label('DSFINALIDADE', 'Finalidade')!!}
-                {!! Form::text('DSFINALIDADE', null, ['class'=>'form-control', 'required']) !!}                
+                {!! Form::label('DSDIETA', 'Descrição')!!}
+                {!! Form::text('DSDIETA', null, ['class'=>'form-control', 'required']) !!}                
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                {!! Form::label('NMFABRICANTE', 'Fabricante')!!}
-                {!! Form::text('NMFABRICANTE', null, ['class'=>'form-control', 'required']) !!}                
+                {!! Form::label('TPUSODIETA', 'Uso')!!}
+                {!! Form::select('TPUSODIETA', ['E'=>'Engorda', 'C'=>'Cresciemnto'], null,['class'=>'form-control', 'required', 'placeholder'=>'Selecione:']) !!}                           
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                {!! Form::label('QTDOSE', 'Dose')!!}
-                {!! Form::text('QTDOSE', null, ['class'=>'form-control', 'required']) !!}                
+                {!! Form::label('NMRACAO', 'Ração')!!}
+                {!! Form::text('NMRACAO', null, ['class'=>'form-control', 'required']) !!}                
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                {!! Form::label('DAVALIDADE', 'Validade')!!}   
-                {!! Form::date('DAVALIDADE', null, ['class'=>'form-control', 'required']) !!}       
+                {!! Form::label('FLATIVO', 'Ativo')!!}
+                {!! Form::select('FLATIVO', ['S'=>'Sim', 'N'=>'Não'], null,['class'=>'form-control', 'required', 'placeholder'=>'Selecione:']) !!}                           
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
