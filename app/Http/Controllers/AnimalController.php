@@ -23,4 +23,10 @@ class AnimalController extends Controller
 
         return redirect('animais');
     }
+
+    public function destroy($id){
+        Dieta::where('IDANIMAL', $id)->delete();
+
+        return redirect('animais');
+    }
 }

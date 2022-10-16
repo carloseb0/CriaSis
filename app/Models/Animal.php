@@ -9,5 +9,6 @@ class Animal extends Model
 {
     use HasFactory;
     protected $table = "animal";
+    protected $primaryKey = "IDANIMAL";
     protected $fillable = ['CODANIMAL', 'NMRACA', 'TPSEXO', 'DANASCIMENTO'];
 }

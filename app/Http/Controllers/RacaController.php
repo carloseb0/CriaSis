@@ -23,4 +23,22 @@ class RacaController extends Controller
 
         return redirect('racas');
     }
+
+    public function destroy($id){
+        Raca::where('IDRACA', $id)->delete();
+
+        return redirect()->route('racas');
+    }
+
+    public function edit($id){
+        $raca = Raca::where('IDRACA', $id)->first();
+        return view('racas.edit', compact('raca'));
+    }
+
+    public function update(RacaRequest $request, $id){
+        $raca = Raca::where('IDRACA', $id)->first();
+        $raca->update($request->all());
+
+        return redirect()->route('racas');
+    }
 }

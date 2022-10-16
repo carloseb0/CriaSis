@@ -9,5 +9,6 @@ class Vacina extends Model
 {
     use HasFactory;
     protected $table = "vacinas";
+    protected $primaryKey = "IDVACINA";
     protected $fillable = ['NMVACINA', 'DSFINALIDADE', 'NMFABRICANTE', 'QTDOSE', 'DAVALIDADE'];
 }

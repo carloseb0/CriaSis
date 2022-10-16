@@ -9,5 +9,6 @@ class Raca extends Model
 {
     use HasFactory;
     protected $table = "raca";
+    protected $primaryKey = "IDRACA";
     protected $fillable = ['NMRACA', 'FLATIVO'];
 }

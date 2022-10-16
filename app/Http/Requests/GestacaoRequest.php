@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PastagemRequest extends FormRequest
+class GestacaoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,10 @@ class PastagemRequest extends FormRequest
     public function rules()
     {
         return [
-            'NMPASTAGEM'=> 'required|max:100',
-            'DSPASTAGEM'=> 'required|max:250',
-            'TPCULTURA'=> 'required|max:10',
-            'FLATIVO'=> 'required|max:1'
+            'IDANIMAL'=> 'required',
+            'DAINSEMINACAO'=> 'required|date',
+            'DANASCIMENTOESTIMADO'=> 'required|date',
+            'TPCUIDADO'=> 'required|max:5',
         ];
     }
 }

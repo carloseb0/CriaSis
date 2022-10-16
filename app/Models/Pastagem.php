@@ -9,5 +9,6 @@ class Pastagem extends Model
 {
     use HasFactory;
     protected $table = "pastagem";
-    protected $fillable = ['NMRACA', 'FLATIVO'];
+    protected $primaryKey = "IDPASTAGEM";
+    protected $fillable = ['NMPASTAGEM', 'DSPASTAGEM', 'TPCULTURA', 'FLATIVO'];
 }

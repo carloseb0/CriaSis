@@ -21,6 +21,24 @@ class DietaController extends Controller
     public function store(DietaRequest $request){
         Dieta::create($request->all());
 
-        return redirect('dietas');
+        return redirect()->route('dietas');
+    }
+
+    public function destroy($id){
+        Dieta::where('IDDIETA', $id)->delete();
+
+        return redirect()->route('dietas');
+    }
+
+    public function edit($id){
+        $dieta = Dieta::where('IDDIETA', $id)->first();
+        return view('dietas.edit', compact('dieta'));
+    }
+
+    public function update(DietaRequest $request, $id){
+        $dieta = Dieta::where('IDDIETA', $id)->first();
+        $dieta->update($request->all());
+
+        return redirect()->route('dietas');
     }
 }

@@ -23,4 +23,22 @@ class PanstagemController extends Controller
 
         return redirect('pastagens');
     }
+
+    public function destroy($id){
+        Pastagem::where('IDPASTAGEM', $id)->delete();
+
+        return redirect()->route('pastagens');
+    }
+
+    public function edit($id){
+        $pastagem = Pastagem::where('IDPASTAGEM', $id)->first();
+        return view('pastagens.edit', compact('pastagem'));
+    }
+
+    public function update(PastagemRequest $request, $id){
+        $pastagem = Pastagem::where('IDPASTAGEM', $id)->first();
+        $pastagem->update($request->all());
+
+        return redirect()->route('pastagens');
+    }
 }

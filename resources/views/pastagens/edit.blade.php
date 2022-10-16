@@ -4,10 +4,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb" style='display: flex; justify-content: space-between;'>
             <div class="pull-left" style='margin: 10px;'>
-                <h2>Cadastrar Pastagem</h2>
+                <h2>Editar Pastagem</h2>
             </div>
             <div class="pull-right" style='margin: 10px;'>
-                <a class="btn btn-primary" href="{{ route('pastagens.index') }}"> Voltar</a>
+                <a class="btn btn-primary" href="{{ route('pastagens') }}"> Voltar</a>
             </div>
         </div>
     </div>
@@ -20,35 +20,35 @@
         </ul>
     @endif
 
-    {!! Form::open(['url'=>'pastagens/store']) !!}
-
+    {!! Form::open(array("method"=>"put", 'route'=>["pastagens.update", "id"=>$pastagem->IDPASTAGEM])) !!}
+    @csrf
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 {!! Form::label('NMPASTAGEM', 'Nome')!!}   
-                {!! Form::text('NMPASTAGEM', null, ['class'=>'form-control', 'required']) !!}
+                {!! Form::text('NMPASTAGEM', $pastagem->NMPASTAGEM, ['class'=>'form-control', 'required']) !!}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 {!! Form::label('DSPASTAGEM', 'Descrição')!!}
-                {!! Form::text('DSPASTAGEM', null, ['class'=>'form-control', 'required']) !!}                
+                {!! Form::text('DSPASTAGEM', $pastagem->DSPASTAGEM, ['class'=>'form-control', 'required']) !!}                
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 {!! Form::label('TPCULTURA', 'Cultura')!!}
-                {!! Form::select('TPCULTURA', ['Sorgo'=>'Sorgo', 'Capim'=>'Capim', 'Gramado'=>'Gramado'], null,['class'=>'form-control', 'required', 'placeholder'=>'Selecione:']) !!}                           
+                {!! Form::select('TPCULTURA', ['Sorgo'=>'Sorgo', 'Capim'=>'Capim', 'Gramado'=>'Gramado'], $pastagem->TPCULTURA, ['class'=>'form-control', 'required', 'placeholder'=>'Selecione:']) !!}                           
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 {!! Form::label('FLATIVO', 'Ativo')!!}
-                {!! Form::select('FLATIVO', ['Sim'=>'Sim', 'Não'=>'Não'], null,['class'=>'form-control', 'required', 'placeholder'=>'Selecione:']) !!}                           
+                {!! Form::select('FLATIVO', ['S'=>'Sim', 'N'=>'Não'], $pastagem->FLATIVO, ['class'=>'form-control', 'required', 'placeholder'=>'Selecione:']) !!}                           
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-            {!! Form::submit('Salvar', ['class'=>'btn btn-primary']) !!} 
+            {!! Form::submit('Editar', ['class'=>'btn btn-primary']) !!} 
             {!! Form::reset('Limpar', ['class'=>'btn btn-default']) !!}
         </div>
     </div>

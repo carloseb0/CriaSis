@@ -22,4 +22,22 @@ class VacinaController extends Controller
 
         return redirect('vacinas');
     }
+
+    public function destroy($id){
+        Dieta::where('IDVACINA', $id)->delete();
+
+        return redirect()->route('vacinas');
+    }
+
+    public function edit($id){
+        $vacina = Vacina::where('IDVACINA', $id)->first();
+        return view('vacinas.edit', compact('vacina'));
+    }
+
+    public function update(VacinaRequest $request, $id){
+        $vacina = Vacina::where('IDVACINA', $id)->first();
+        $vacina->update($request->all());
+
+        return redirect()->route('vacinas');
+    }
 }

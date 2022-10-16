@@ -318,6 +318,11 @@ return [
                     'url' => 'pastagens',
                     'icon' => ''
                 ],
+                [
+                    'text' => 'Gestação',
+                    'url' => 'gestacoes',
+                    'icon' => ''
+                ],
             ],
         ],
         [
@@ -331,7 +336,7 @@ return [
             ],
         ],
         [
-            'text' => 'Relatórios',
+            'text' => 'Consultas',
             'submenu'=>[
                 [
                     'text' => 'Engorda',
