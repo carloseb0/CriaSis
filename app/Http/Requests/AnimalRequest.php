@@ -25,7 +25,7 @@ class AnimalRequest extends FormRequest
     {
         return [
             'CODANIMAL'=> 'required|min:4',
-            'NMRACA'=> 'required|max:100',
+            'IDRACA'=> 'required',
             'TPSEXO'=> 'required',
             'DANASCIMENTO'=> 'date'
         ];

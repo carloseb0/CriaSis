@@ -16,8 +16,9 @@ class CreatePastagemsTable extends Migration
         Schema::create('pastagem', function (Blueprint $table) {
             $table->id('IDPASTAGEM');
             $table->string('NMPASTAGEM', 100);
-            $table->string('TPCULTURA', 10);
-            $table->date('DALIBERACAO');
+            $table->string('TPCULTURA', 1);
+            $table->date('DALIBERACAO')->nullable();
+            $table->longText('DSPASTAGEM');
             $table->string('FLATIVO', 1);
             $table->timestamps();
         });

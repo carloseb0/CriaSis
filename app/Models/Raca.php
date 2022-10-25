@@ -11,4 +11,8 @@ class Raca extends Model
     protected $table = "raca";
     protected $primaryKey = "IDRACA";
     protected $fillable = ['NMRACA', 'FLATIVO'];
+
+    public function animais(){
+        return $this->hasMany("App\Models\Animal", 'IDRACA');
+    }
 }

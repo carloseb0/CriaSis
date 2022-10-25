@@ -25,9 +25,9 @@ class PastagemRequest extends FormRequest
     {
         return [
             'NMPASTAGEM'=> 'required|max:100',
-            'DSPASTAGEM'=> 'required|max:250',
-            'TPCULTURA'=> 'required|max:10',
-            'FLATIVO'=> 'required|max:1'
+            'DSPASTAGEM'=> 'required|max:300',
+            'FLATIVO'=> 'required|max:1',
+            'DSPASTAGEM'=> 'required'
         ];
     }
 }

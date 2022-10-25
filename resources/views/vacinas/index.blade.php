@@ -1,17 +1,20 @@
 @extends('layouts.default')
 @section('content')
-    <div class="row">
+<link href="{{ asset('../css/app.css') }}" rel="stylesheet">
+<div class="card">
+    <div class="card-header">
         <div class="col-lg-12 margin-tb" style='display: flex; justify-content: space-between;'>
-            <div class="pull-left" style='margin: 10px;'>
+            <div class="pull-left">
                 <h2>Vacinas</h2>
             </div>
-            <div class="pull-right" style='margin: 10px;'>
-                <a class="btn btn-success" href="{{ route('vacinas.create') }}">Novo Registro</a>
+            <div class="pull-right">
+                <a class="btn btn-info" href="{{ route('vacinas.create') }}">Novo Registro</a>
             </div>
         </div>
-        
+    </div>
+    <div class="card-body">
         <table class='table talbe-stipe table-bordered table-hover table-sm'>
-            <thead class='table-dark'>
+            <thead>
                 <tr>
                     <th>Cód.</th>
                     <th>Nome</th>
@@ -40,6 +43,8 @@
             </tbody>
         </table>
     </div>
+    {{ $arrVacinas->links("pagination::bootstrap-4") }}
+</div>
 @stop
 
 @section('table-delete')

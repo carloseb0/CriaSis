@@ -9,7 +9,21 @@ class DietaController extends Controller
 {
     public function index(){
         // Como fazer get com wherer : Raca::where('FLATIVO', '=', 'S')->get();
-        $arrDietas = Dieta::all();
+        // $arrDietas = Dieta::orderBy('NMDIETA')->paginate(10);
+
+        $arrDietas = Dieta::select("dieta.*",
+                                    \DB::raw('(CASE 
+                                        WHEN FLATIVO = "s" THEN "Sim"
+                                        ELSE "Não"
+                                        END) AS DSFLATIVO'),
+                                    \DB::raw('(CASE 
+                                        WHEN TPUSODIETA = "E" 
+                                            THEN "Engorda"
+                                        WHEN "C"
+                                            THEN "Crescimento"
+                                        ELSE "Produção"
+                                        END) AS DSTPUSODIETA'))
+                                ->paginate(10);
 
         return view('dietas.index', ['arrDietas'=>$arrDietas]);
     }

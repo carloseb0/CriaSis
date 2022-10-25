@@ -9,7 +9,19 @@ class PanstagemController extends Controller
 {
     public function index(){
         // Como fazer get com wherer : Raca::where('FLATIVO', '=', 'S')->get();
-        $arrPastagens = Pastagem::all();
+        // $arrPastagens = Pastagem::orderBy('NMPASTAGEM')->paginate(10);
+        $arrPastagens = Pastagem::select("pastagem.*",
+                                        \DB::raw('(CASE 
+                                            WHEN FLATIVO = "s" THEN "Sim"
+                                            ELSE "Não"
+                                            END) AS DSFLATIVO'),
+                                        \DB::raw('(CASE 
+                                            WHEN TPCULTURA = "S" THEN "Sorgo"
+                                                WHEN "C"
+                                            THEN "Capim"
+                                            ELSE "Gramado"
+                                            END) AS DSTPCULTURA'))
+                                    ->paginate(10);
 
         return view('pastagens.index', ['arrPastagens'=>$arrPastagens]);
     }

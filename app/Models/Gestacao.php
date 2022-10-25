@@ -11,4 +11,8 @@ class Gestacao extends Model
     protected $table = "gestacao";
     protected $primaryKey = "IDGESTACAO";
     protected $fillable = ['IDANIMAL', 'DAINSEMINACAO', 'DANASCIMENTOESTIMADO', 'TPCUIDADO'];
+
+    public function animais(){
+        return $this->belongsTo("App\Models\Animal", 'IDANIMAL');
+    }
 }

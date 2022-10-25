@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVacinasTable extends Migration
+class CreateRacaosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreateVacinasTable extends Migration
      */
     public function up()
     {
-        Schema::create('vacinas', function (Blueprint $table) {
-            $table->id('IDVACINA');
-            $table->string('NMVACINA', 100);
-            $table->longText('DSFINALIDADE');
+        Schema::create('racao', function (Blueprint $table) {
+            $table->id('IDRACAO');
+            $table->string('NMRACAO', 100);
             $table->string('NMFABRICANTE', 100);
-            $table->decimal('QTDOSE', $precision = 8, $scale = 2);
+            $table->double('QTKG', 15, 2);
             $table->date('DAVALIDADE');
+            $table->longText('DSRACAO');
+            $table->string('FLATIVO', 1);
+
             $table->timestamps();
         });
     }
@@ -31,6 +33,6 @@ class CreateVacinasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vacinas');
+        Schema::dropIfExists('racao');
     }
 }

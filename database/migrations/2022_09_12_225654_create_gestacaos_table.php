@@ -15,7 +15,8 @@ class CreateGestacaosTable extends Migration
     {
         Schema::create('gestacao', function (Blueprint $table) {
             $table->id('IDGESTACAO');
-            $table->integer('IDANIMAL');
+            $table->bigInteger('IDANIMAL')->unsigned()->nullable();
+            $table->foreign('IDANIMAL')->references('IDANIMAL')->on('animal');
             $table->date('DAINSEMINACAO');
             $table->date('DANASCIMENTOESTIMADO');
             $table->string('TPCUIDADO', 5);

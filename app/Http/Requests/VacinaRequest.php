@@ -25,7 +25,7 @@ class VacinaRequest extends FormRequest
     {
         return [
             'NMVACINA'=> 'required|max:100',
-            'DSFINALIDADE'=> 'required|max:250',
+            'DSFINALIDADE'=> 'required|max:300',
             'NMFABRICANTE'=>'required|max:100|',
             'QTDOSE'=>'required|numeric|between:0,99.99',
             'DAVALIDADE'=>'required',

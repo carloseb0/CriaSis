@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DietaRequest extends FormRequest
+class RacaoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,12 @@ class DietaRequest extends FormRequest
     public function rules()
     {
         return [
-            'NMDIETA'=> 'required|max:100',
-            'DSDIETA'=> 'required|max:300',
-            'TPUSODIETA'=> 'required|max:1',
-            'IDRACAO'=> 'required',
-            'FLATIVO'=> 'required|max:1',
+            'NMRACAO'=> 'required|max:100',
+            'NMFABRICANTE'=> 'required|max:100',
+            'QTKG'=> 'required',
+            'DAVALIDADE'=> 'required|date',
+            'DSRACAO'=> 'required|max:300',
+            'FLATIVO' => 'required|max:1'
         ];
     }
 }

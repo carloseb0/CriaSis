@@ -16,7 +16,8 @@ class CreateAnimalsTable extends Migration
         Schema::create('animal', function (Blueprint $table) {
             $table->id('IDANIMAL');
             $table->string('CODANIMAL', 4);
-            $table->integer('IDRACA');
+            $table->bigInteger('IDRACA')->unsigned()->nullable();
+            $table->foreign('IDRACA')->references('IDRACA')->on('raca');
             $table->string('TPSEXO', 2);
             $table->date('DANASCIMENTO');
             $table->timestamps();

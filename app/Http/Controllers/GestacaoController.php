@@ -10,7 +10,7 @@ class GestacaoController extends Controller
 {
     public function index(){
         // Como fazer get com wherer : Raca::where('FLATIVO', '=', 'S')->get();
-        $arrGestacoes = Gestacao::all();
+        $arrGestacoes = Gestacao::orderBy('IDGESTACAO')->paginate(10);
 
         return view('gestacoes.index', ['arrGestacoes'=>$arrGestacoes]);
     }

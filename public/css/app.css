@@ -112,6 +112,7 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   margin-bottom: 0.5rem;
   font-weight: 500;
   line-height: 1.2;
+  margin: auto;
 }
 
 h1, .h1 {
@@ -241,7 +242,7 @@ sup {
 
 a {
   color: var(--bs-link-color);
-  text-decoration: underline;
+  text-decoration: none;
 }
 a:hover {
   color: var(--bs-link-hover-color);
@@ -10814,4 +10815,11 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+.container-fluid{
+  padding: 10px 10px 15px;
+}
+.pagination{
+  display: flex;
+  justify-content: center;
 }

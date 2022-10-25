@@ -9,7 +9,16 @@ class RacaController extends Controller
 {
     public function index(){
         // Como fazer get com wherer : Raca::where('FLATIVO', '=', 'S')->get();
-        $arrRacas = Raca::all();
+        // $arrRacas = Raca::orderBy('NMRACA')
+        //                 ->raw("CASE raca.FLATIVO = 'S' THEN Sim ELSE Não END DSFLATIVO")
+        //                 ->paginate(5);
+
+        $arrRacas = Raca::select("raca.*",
+                                \DB::raw('(CASE 
+                                    WHEN FLATIVO = "s" THEN "Sim"
+                                    ELSE "Não"
+                                    END) AS DSFLATIVO'))
+                            ->paginate(10);
 
         return view('racas.index', ['arrRacas'=>$arrRacas]);
     }

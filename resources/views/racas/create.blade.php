@@ -2,13 +2,12 @@
 @auth
     
 @section('content')
-    <div class="row">
+<link href="{{ asset('../css/app.css') }}" rel="stylesheet">
+<div class="card">
+    <div class="card-header">
         <div class="col-lg-12 margin-tb" style='display: flex; justify-content: space-between;'>
-            <div class="pull-left" style='margin: 10px;'>
-                <h2>Cadastro Raças</h2>
-            </div>
-            <div class="pull-right" style='margin: 10px;'>
-                <a class="btn btn-primary" href="{{ route('racas.index') }}"> Voltar</a>
+            <div>
+                <h2>Raças</h2>
             </div>
         </div>
     </div>
@@ -22,25 +21,27 @@
     @endif
 
     {!! Form::open(['url'=>'racas/store']) !!}
-
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                {!! Form::label('NMRACA', 'Nome')!!}
-                {!! Form::text('NMRACA', null, ['class'=>'form-control', 'required']) !!}                
+    <div class="card-body">
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4">
+                <div class="form-group">
+                    {!! Form::label('NMRACA', 'Nome')!!}
+                    {!! Form::text('NMRACA', null, ['class'=>'form-control', 'required']) !!}                
+                </div>
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                {!! Form::label('FLATIVO', 'Ativo')!!}
-                {!! Form::select('FLATIVO', ['S'=>'Sim', 'N'=>'Não'], null,['class'=>'form-control', 'required', 'placeholder'=>'Selecione:']) !!}                           
+            <div class="col-xs-2 col-sm-2 col-md-2">
+                <div class="form-group">
+                    {!! Form::label('FLATIVO', 'Ativo')!!}
+                    {!! Form::select('FLATIVO', ['S'=>'Sim', 'N'=>'Não'], null,['class'=>'form-control', 'required', 'placeholder'=>'Selecione:']) !!}                           
+                </div>
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-            {!! Form::submit('Salvar', ['class'=>'btn btn-primary']) !!} 
-            {!! Form::reset('Limpar', ['class'=>'btn btn-default']) !!}
         </div>
     </div>
+    <div class="card-footer" style="text-align: right;">
+        <a class="btn btn-primary" href="{{ route('racas') }}"> Voltar</a>
+        {!! Form::submit('Salvar', ['class'=>'btn btn-primary', 'style'=>'margin-right: 10px; margin-left: 5px;']) !!}
+    </div>
+</div>
 
 
     {!! Form::close() !!}

@@ -5,10 +5,10 @@
     <div class="card-header">
         <div class="col-lg-12 margin-tb" style='display: flex; justify-content: space-between;'>
             <div>
-                <h2>Animais</h2>
+                <h2>Ração</h2>
             </div>
             <div>
-                <a class="btn btn-info" href="{{ route('animais.create') }}">Novo Registro</a>
+                <a class="btn btn-info" href="{{ route('racoes.create') }}">Novo Registro</a>
             </div>
         </div>
     </div>
@@ -17,23 +17,27 @@
             <thead>
                 <tr>
                     <th>Cód.</th>
-                    <th>Raça</th>
-                    <th>Sexo</th>
-                    <th>Dt. Nascimento</th>
+                    <th>Nome</th>
+                    <th>Fabricante</th>
+                    <th>Qtd.</th>
+                    <th>Dt. Validade</th>
+                    <th>Ativo</th>
                     <th width="10%">Ações</th>
                 </tr>
             </thead>
             <tbody>
-                @if($arrAnimais != '0')
-                    @foreach($arrAnimais as $animal)  
+                @if($arrRacoes != '0')
+                    @foreach($arrRacoes as $racao)  
                         <tr>
-                            <td>{{ $animal->CODANIMAL}}</td>
-                            <td>{{ $animal->raca->NMRACA}}</td>
-                            <td>{{ $animal->DSTPSEXO}}</td>
-                            <td>{{ Carbon\Carbon::parse($animal->DANASCIMENTO)->format('d/m/Y')}}</td>
+                            <td>{{ $racao->IDRACAO}}</td>
+                            <td>{{ $racao->NMRACAO}}</td>
+                            <td>{{ $racao->NMFABRICANTE}}</td>
+                            <td>{{ $racao->QTKG}}</td>
+                            <td>{{ Carbon\Carbon::parse($racao->DAVALIDADE)->format('d/m/Y')}}</td>
+                            <td>{{ $racao->DSFLATIVO}}</td>
                             <td style="display: flex; justify-content: center; padding: 8px;">
-                                <a href="{{ route('animais.edit', ['id'=>$animal->IDANIMAL]) }}" title='Editar' class="fa fa-edit" style="margin-right: 10px"></a>
-                                <a href="#" onclick="return ConfirmaExclusao({{$animal->IDANIMAL}})" class="fa fa-trash" title="Remover"></a>
+                                <a href="{{ route('racoes.edit', ['id'=>$racao->IDRACAO]) }}" title='Editar' class="fa fa-edit" style="margin-right: 10px"></a>
+                                <a href="#" onclick="return ConfirmaExclusao({{$racao->IDRACAO}})" class="fa fa-trash" title="Remover"></a>
                             </td>
                         </tr>
                     @endforeach
@@ -45,10 +49,10 @@
             </tbody>
         </table>
     </div>
-    {{ $arrAnimais->links("pagination::bootstrap-4") }}
+    {{ $arrRacoes->links("pagination::bootstrap-4") }}
 </div>
 @stop
 
 @section('table-delete')
-"animais"
+"racoes"
 @endsection

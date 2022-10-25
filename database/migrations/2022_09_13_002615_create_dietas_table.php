@@ -16,9 +16,10 @@ class CreateDietasTable extends Migration
         Schema::create('dieta', function (Blueprint $table) {
             $table->id('IDDIETA');
             $table->string('NMDIETA', 100);
-            $table->string('DSDIETA', 250);
+            $table->longText('DSDIETA');
             $table->string('TPUSODIETA', 15);
-            $table->string('NMRACAO', 50);
+            $table->bigInteger('IDRACAO')->unsigned()->nullable();
+            $table->foreign('IDRACAO')->references('IDRACAO')->on('racao');
             $table->string('FLATIVO', 1);
             $table->timestamps();
         });

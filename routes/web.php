@@ -76,5 +76,14 @@ Route::group(['middleware' => 'auth'], function(){
         Route::get('{id}/edit', ['as'=>'gestacoes.edit', 'uses'=>"\App\Http\Controllers\GestacaoController@edit"]);
         Route::put('{id}/update', ['as'=>'gestacoes.update', 'uses'=>"\App\Http\Controllers\GestacaoController@update"]);
     });
+
+    Route::group(['prefix'=>'racoes', 'where'=>['id'=>'[0-9]+']], function() {
+        Route::get('', ['as'=>'racoes', 'uses'=>"\App\Http\Controllers\RacaoController@index"]);
+        Route::get('create', ['as'=>'racoes.create', 'uses'=>"\App\Http\Controllers\RacaoController@create"]);
+        Route::post('store', ['as'=>'racoes.store', 'uses'=>"\App\Http\Controllers\RacaoController@store"]);
+        Route::get('{id}/destroy', ['as'=>'racoes.destroy', 'uses'=>"\App\Http\Controllers\RacaoController@destroy"]);
+        Route::get('{id}/edit', ['as'=>'racoes.edit', 'uses'=>"\App\Http\Controllers\RacaoController@edit"]);
+        Route::put('{id}/update', ['as'=>'racoes.update', 'uses'=>"\App\Http\Controllers\RacaoController@update"]);
+    });
     
 });

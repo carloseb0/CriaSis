@@ -8,7 +8,7 @@ use App\Models\Vacina;
 class VacinaController extends Controller
 {
     public function index(){
-        $arrVacinas = Vacina::all();
+        $arrVacinas = Vacina::orderBy('IDVACINA')->paginate(5);
 
         return view('vacinas.index', ['arrVacinas'=>$arrVacinas]);
     }
