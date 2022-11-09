@@ -8,7 +8,7 @@
                 <h2>Gestações</h2>
             </div>
             <div>
-                <a class="btn btn-info" href="{{ route('gestacoes.create') }}">Novo Registro</a>
+                <a class="btn" id="btn-principal" href="{{ route('gestacoes.create') }}">Novo Registro</a>
             </div>
         </div>
     </div>
@@ -25,19 +25,25 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($arrGestacoes as $gestacao)  
+                @if(!$arrGestacoes->isEmpty())
+                    @foreach($arrGestacoes as $gestacao)  
+                        <tr>
+                            <td>{{ $gestacao->IDGESTACAO}}</td>
+                            <td>{{ $gestacao->animais->CODANIMAL}}</td>
+                            <td>{{ Carbon\Carbon::parse($gestacao->DAINSEMINACAO)->format('d/m/Y') }}</td>
+                            <td>{{ Carbon\Carbon::parse($gestacao->DANASCIMENTOESTIMADO)->format('d/m/Y') }}</td>
+                            <td>{{ $gestacao->TPCUIDADO}}</td>
+                            <td style="display: flex; justify-content: center; padding: 8px;">
+                                <a href="{{ route('gestacoes.edit', ['id'=>$gestacao->IDGESTACAO]) }}" title='Editar' id="btn-tarefas"  id="btn-tarefas" class="fa fa-edit" style="margin-right: 10px"></a>
+                                <a href="#" onclick="return ConfirmaExclusao({{$gestacao->IDGESTACAO}})" class="fa fa-trash" id="btn-tarefas"  id="btn-tarefas"title="Remover"></a>
+                            </td>
+                        </tr>
+                    @endforeach
+                @else
                     <tr>
-                        <td>{{ $gestacao->IDGESTACAO}}</td>
-                        <td>{{ $gestacao->animais->CODANIMAL}}</td>
-                        <td>{{ Carbon\Carbon::parse($gestacao->DAINSEMINACAO)->format('d/m/Y') }}</td>
-                        <td>{{ Carbon\Carbon::parse($gestacao->DANASCIMENTOESTIMADO)->format('d/m/Y') }}</td>
-                        <td>{{ $gestacao->TPCUIDADO}}</td>
-                        <td style="display: flex; justify-content: center; padding: 8px;">
-                            <a href="{{ route('gestacoes.edit', ['id'=>$gestacao->IDGESTACAO]) }}" title='Editar' class="fa fa-edit" style="margin-right: 10px"></a>
-                            <a href="#" onclick="return ConfirmaExclusao({{$gestacao->IDGESTACAO}})" class="fa fa-trash" title="Remover"></a>
-                        </td>
-                    </tr>
-                @endforeach
+                        <td colspan="6" style='text-align: center;'>Nenhum Registro Encontrado</td>
+                    </tr>   
+                @endif  
             </tbody>
         </table>
     </div>

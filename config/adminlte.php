@@ -63,12 +63,12 @@ return [
     |
     */
 
-    'logo' => '<b>Cria</b>Sis',
+    'logo' => "",
     'logo_img' => 'vendor/adminlte/dist/img/logo.png',
-    'logo_img_class' => 'brand-image img-thumbnail elevation-3',
+    'logo_img_class' => 'img-Logo',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'Admin Logo',
+    'logo_img_alt' => '',
 
     /*
     |--------------------------------------------------------------------------
@@ -89,8 +89,8 @@ return [
             'path' => 'vendor/adminlte/dist/img/logo.png',
             'alt' => 'Auth Logo',
             'class' => '',
-            'width' => 50,
-            'height' => 50,
+            'width' => 100,
+            'height' => 0,
         ],
     ],
 
@@ -296,37 +296,50 @@ return [
                 [
                     'text' => 'Animais',
                     'url' => 'animais',
-                    'icon' => ''
+                    'icon' => '',
+                    'can' => 'veterinario-admin'
                 ],
                 [
                     'text' => 'Raça',
                     'url' => 'racas',
-                    'icon' => ''
+                    'icon' => '',
+                    'can' => 'veterinario-admin'
                 ],
                 [
                     'text' => 'Vacina',
                     'url' => 'vacinas',
-                    'icon' => ''
+                    'icon' => '',
+                    'can' => 'veterinario-admin'
                 ],
                 [
                     'text' => 'Dieta',
                     'url' => 'dietas',
-                    'icon' => ''
+                    'icon' => '',
+                    'can' => 'veterinario-admin'
                 ],
                 [
                     'text' => 'Ração',
                     'url' => 'racoes',
-                    'icon' => ''
+                    'icon' => '',
+                    'can' => 'veterinario-admin'
                 ],
                 [
                     'text' => 'Pastagem',
                     'url' => 'pastagens',
-                    'icon' => ''
+                    'icon' => '',
+                    'can' => 'veterinario-admin'
                 ],
                 [
-                    'text' => 'Gestação',
-                    'url' => 'gestacoes',
-                    'icon' => ''
+                    'text' => 'Usuários',
+                    'url' => 'usuarios',
+                    'icon' => '',
+                    'can' => 'admin'
+                ],
+                [
+                    'text' => 'Perfil',
+                    'url' => 'perfis',
+                    'icon' => '',
+                    'can' => 'admin'
                 ],
             ],
         ],
@@ -335,8 +348,21 @@ return [
             'submenu'=>[
                 [
                     'text' => 'Criação de Lote',
-                    'url' => '###',
-                    'icon' => ''
+                    'url' => 'lotes',
+                    'icon' => '',
+                    'can' => 'veterinario-admin'
+                ],
+                [
+                    'text' => 'Gestação',
+                    'url' => 'gestacoes',
+                    'icon' => '',
+                    'can' => 'veterinario-admin'
+                ],
+                [
+                    'text' => 'Importações',
+                    'url' => 'importacoes',
+                    'icon' => '',
+                    'can' => 'veterinario-admin'
                 ],
             ],
         ],

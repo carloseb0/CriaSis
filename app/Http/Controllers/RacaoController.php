@@ -31,9 +31,16 @@ class RacaoController extends Controller
     }
 
     public function destroy($id){
-        Racao::where('IDRACAO', $id)->delete();
-
-        return redirect()->route('racoes');
+        try {
+            Racao::where('IDRACAO', $id)->delete();
+			$ret = array('status'=>200, 'msg'=>"null");
+		} catch (\Illuminate\Database\QueryException $e) {
+			$ret = array('status'=>500, 'msg'=>$e->getMessage());
+		} 
+		catch (\PDOException $e) {
+			$ret = array('status'=>500, 'msg'=>$e->getMessage());
+		}
+		return $ret;
     }
 
     public function edit($id){

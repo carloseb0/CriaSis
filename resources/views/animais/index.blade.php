@@ -8,7 +8,7 @@
                 <h2>Animais</h2>
             </div>
             <div>
-                <a class="btn btn-info" href="{{ route('animais.create') }}">Novo Registro</a>
+                <a class="btn"  id="btn-principal" href="{{ route('animais.create') }}">Novo Registro</a>
             </div>
         </div>
     </div>
@@ -24,7 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-                @if($arrAnimais != '0')
+                @if(!$arrAnimais->isEmpty())
                     @foreach($arrAnimais as $animal)  
                         <tr>
                             <td>{{ $animal->CODANIMAL}}</td>
@@ -32,8 +32,8 @@
                             <td>{{ $animal->DSTPSEXO}}</td>
                             <td>{{ Carbon\Carbon::parse($animal->DANASCIMENTO)->format('d/m/Y')}}</td>
                             <td style="display: flex; justify-content: center; padding: 8px;">
-                                <a href="{{ route('animais.edit', ['id'=>$animal->IDANIMAL]) }}" title='Editar' class="fa fa-edit" style="margin-right: 10px"></a>
-                                <a href="#" onclick="return ConfirmaExclusao({{$animal->IDANIMAL}})" class="fa fa-trash" title="Remover"></a>
+                                <a href="{{ route('animais.edit', ['id'=>$animal->IDANIMAL]) }}" title='Editar' class="fa fa-edit" id="btn-tarefas" style="margin-right: 10px"></a>
+                                <a href="#" onclick="return ConfirmaExclusao({{$animal->IDANIMAL}})" class="fa fa-trash" id="btn-tarefas" title="Remover"></a>
                             </td>
                         </tr>
                     @endforeach

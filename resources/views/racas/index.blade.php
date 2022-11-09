@@ -8,7 +8,7 @@
                 <h2>Raças</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-info" href="{{ route('racas.create') }}">Novo Registro</a>
+                <a class="btn" id="btn-principal" href="{{ route('racas.create') }}">Novo Registro</a>
             </div>
         </div>
     </div>
@@ -23,17 +23,23 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($arrRacas as $raca)  
+                @if(!$arrRacas->isEmpty())
+                    @foreach($arrRacas as $raca)  
+                        <tr>
+                            <td>{{ $raca->IDRACA}}</td>
+                            <td>{{ $raca->NMRACA}}</td>
+                            <td>{{ $raca->DSFLATIVO}}</td>
+                            <td style="display: flex; justify-content: center; padding: 9px;">
+                                <a href="{{ route('racas.edit', ['id'=>$raca->IDRACA]) }}"id="btn-tarefas" title='Editar' class="fa fa-edit" style="margin-right: 10px"></a>
+                                <a href="#" onclick="return ConfirmaExclusao({{$raca->IDRACA}})" id="btn-tarefas"class="fa fa-trash" title="Remover"></a>
+                            </td>
+                        </tr>
+                    @endforeach
+                @else
                     <tr>
-                        <td>{{ $raca->IDRACA}}</td>
-                        <td>{{ $raca->NMRACA}}</td>
-                        <td>{{ $raca->DSFLATIVO}}</td>
-                        <td style="display: flex; justify-content: center; padding: 9px;">
-                            <a href="{{ route('racas.edit', ['id'=>$raca->IDRACA]) }}" title='Editar' class="fa fa-edit" style="margin-right: 10px"></a>
-                            <a href="#" onclick="return ConfirmaExclusao({{$raca->IDRACA}})" class="fa fa-trash" title="Remover"></a>
-                        </td>
-                    </tr>
-                @endforeach
+                       <td colspan="4" style='text-align: center;'>Nenhum Registro Encontrado</td>
+                   </tr>   
+               @endif
             </tbody>
         </table>
     </div>

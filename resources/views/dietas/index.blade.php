@@ -8,7 +8,7 @@
                 <h2>Dietas</h2>
             </div>
             <div>
-                <a class="btn btn-info" href="{{ route('dietas.create') }}">Novo Registro</a>
+                <a class="btn" id="btn-principal" href="{{ route('dietas.create') }}">Novo Registro</a>
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
                 </tr>
             </thead>
             <tbody>
-                @if($arrDietas != '0')
+                @if(!$arrDietas->isEmpty())
                     @foreach($arrDietas as $dieta)  
                         <tr>
                             <td>{{ $dieta->IDDIETA}}</td>
@@ -36,8 +36,8 @@
                             <td>{{ $dieta->racao->NMRACAO}}</td>
                             <td>{{ $dieta->DSFLATIVO}}</td>
                             <td style="display: flex; justify-content: center; padding: 8px;">
-                                <a href="{{ route('dietas.edit', ['id'=>$dieta->IDDIETA]) }}" title='Editar' class="fa fa-edit" style="margin-right: 10px"></a>
-                                <a href="#" onclick="return ConfirmaExclusao({{$dieta->IDDIETA}})" class="fa fa-trash" title="Remover"></a>
+                                <a href="{{ route('dietas.edit', ['id'=>$dieta->IDDIETA]) }}" title='Editar' class="fa fa-edit" id="btn-tarefas" style="margin-right: 10px"></a>
+                                <a href="#" onclick="return ConfirmaExclusao({{$dieta->IDDIETA}})" class="fa fa-trash" id="btn-tarefas" title="Remover"></a>
                             </td>
                         </tr>
                     @endforeach

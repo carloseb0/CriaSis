@@ -2802,9 +2802,9 @@ textarea.form-control-lg {
   }
 }
 :not(.btn-check) + .btn:hover, .btn:first-child:hover {
-  color: var(--bs-btn-hover-color);
-  background-color: var(--bs-btn-hover-bg);
-  border-color: var(--bs-btn-hover-border-color);
+  color: white;
+  background-color: #28a148;
+  border-color: #28a148
 }
 .btn:focus-visible {
   color: var(--bs-btn-hover-color);
@@ -2836,19 +2836,19 @@ textarea.form-control-lg {
 
 .btn-primary {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #0d6efd;
-  --bs-btn-border-color: #0d6efd;
+  --bs-btn-bg: #218f3e;
+  --bs-btn-border-color: #218f3e;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #0b5ed7;
-  --bs-btn-hover-border-color: #0a58ca;
+  --bs-btn-hover-bg: #218f3e;
+  --bs-btn-hover-border-color: #218f3e;
   --bs-btn-focus-shadow-rgb: 49, 132, 253;
   --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #0a58ca;
-  --bs-btn-active-border-color: #0a53be;
+  --bs-btn-active-bg: #218f3e;
+  --bs-btn-active-border-color: #218f3e;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #0d6efd;
-  --bs-btn-disabled-border-color: #0d6efd;
+  --bs-btn-disabled-bg: #218f3e;
+  --bs-btn-disabled-border-color: #218f3e;
 }
 
 .btn-secondary {
@@ -10822,4 +10822,83 @@ textarea.form-control-lg {
 .pagination{
   display: flex;
   justify-content: center;
+}
+
+#login{
+  padding: 4px;
+  width: 100px;
+  background: #218f3e;
+  color: white;
+  
+}
+
+#btnLogin{
+  text-align: center;
+  padding: 10px;
+}
+
+#alterarsenha{
+  padding: 4px;
+  width: 120px;
+  background: #218f3e;
+  color: white;
+
+}
+
+#h2Title{
+  font-size: xxx-large;
+  font-family: monospace;
+  color: #0fd626;
+}
+
+#btn-principal{
+  background: #218f3e;
+  color: white;
+}
+
+#btn-tarefas{
+  color: #218f3e;
+  margin-right: 10px;
+}
+
+.teste{
+  font-size: x-large;
+}
+
+.img-Logo{
+  width: 100px;
+  text-align: center;
+}
+
+#div-MasterDetail{
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.legend{
+  font-size: xx-large;
+  font-family: monospace;
+  color: #218f3e;
+}
+
+#btn-addMasterDetail{
+  background: #218f3e;
+  color: white;
+  margin-bottom: 10px;
+}
+
+#divMasterDetail{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.btn-add{
+  border: none;
+  background: white;
+  color: #0fd626;
+  font-weight: bold;
 }

@@ -63,8 +63,8 @@
     </div>
     <div class="card-footer">
         <div class="text-right" style="margin-right: 10px;">
-            <a class="btn btn-primary" href="{{ route('racoes') }}"> Voltar</a>
-            {!! Form::submit('Editar', ['class'=>'btn btn-primary', 'style'=>'margin-right: 10px; margin-left: 5px;']) !!} 
+            <a class="btn" id="btn-principal" href="{{ route('animais') }}"> Voltar</a>
+            {!! Form::submit('Editar', ['class'=>'btn', "id"=>"btn-principal", 'style'=>'margin-right: 10px; margin-left: 5px;']) !!}
         </div>
     </div>
 </div>

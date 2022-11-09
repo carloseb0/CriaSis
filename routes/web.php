@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('login');
 });
 
 Auth::routes();
@@ -85,5 +85,39 @@ Route::group(['middleware' => 'auth'], function(){
         Route::get('{id}/edit', ['as'=>'racoes.edit', 'uses'=>"\App\Http\Controllers\RacaoController@edit"]);
         Route::put('{id}/update', ['as'=>'racoes.update', 'uses'=>"\App\Http\Controllers\RacaoController@update"]);
     });
+
+    // Route::middleware('can:admin')->group(function () {
+        Route::group(['prefix'=>'usuarios', 'where'=>['id'=>'[0-9]+']], function() {
+            Route::get('', ['as'=>'usuarios', 'uses'=>"\App\Http\Controllers\UsuariosController@index"]);
+            Route::get('create', ['as'=>'usuarios.create', 'uses'=>"\App\Http\Controllers\UsuariosController@create"]);
+            Route::post('store', ['as'=>'usuarios.store', 'uses'=>"\App\Http\Controllers\UsuariosController@store"]);
+            Route::get('{id}/destroy', ['as'=>'usuarios.destroy', 'uses'=>"\App\Http\Controllers\UsuariosController@destroy"]);
+            Route::get('{id}/edit', ['as'=>'usuarios.edit', 'uses'=>"\App\Http\Controllers\UsuariosController@edit"]);
+            Route::put('{id}/update', ['as'=>'usuarios.update', 'uses'=>"\App\Http\Controllers\UsuariosController@update"]);
+        });
+
+        Route::group(['prefix'=>'perfis', 'where'=>['id'=>'[0-9]+']], function() {
+            Route::get('', ['as'=>'perfis', 'uses'=>"\App\Http\Controllers\PerfilController@index"]);
+            Route::get('create', ['as'=>'perfis.create', 'uses'=>"\App\Http\Controllers\PerfilController@create"]);
+            Route::post('store', ['as'=>'perfis.store', 'uses'=>"\App\Http\Controllers\PerfilController@store"]);
+            Route::get('{id}/destroy', ['as'=>'perfis.destroy', 'uses'=>"\App\Http\Controllers\PerfilController@destroy"]);
+            Route::get('{id}/edit', ['as'=>'perfis.edit', 'uses'=>"\App\Http\Controllers\PerfilController@edit"]);
+            Route::put('{id}/update', ['as'=>'perfis.update', 'uses'=>"\App\Http\Controllers\PerfilController@update"]);
+        });
+    // });
+
+    Route::group(['prefix'=>'lotes', 'where'=>['id'=>'[0-9]+']], function() {
+        Route::get('', ['as'=>'lotes', 'uses'=>"\App\Http\Controllers\LoteController@index"]);
+        Route::get('create', ['as'=>'lotes.create', 'uses'=>"\App\Http\Controllers\LoteController@create"]);
+        Route::post('store', ['as'=>'lotes.store', 'uses'=>"\App\Http\Controllers\LoteController@store"]);
+        Route::get('{id}/destroy', ['as'=>'lotes.destroy', 'uses'=>"\App\Http\Controllers\LoteController@destroy"]);
+        Route::get('{id}/edit', ['as'=>'lotes.edit', 'uses'=>"\App\Http\Controllers\LoteController@edit"]);
+        Route::put('{id}/update', ['as'=>'lotes.update', 'uses'=>"\App\Http\Controllers\LoteController@update"]);
+    });
     
+    Route::group(['prefix'=>'importacoes', 'where'=>['id'=>'[0-9]+']], function() {
+        Route::get('', ['as'=>'importacoes', 'uses'=>"\App\Http\Controllers\ImportacaoController@import"]);
+        Route::post('storeImport', ['as'=>'importacoes.storeImport', 'uses'=>"\App\Http\Controllers\ImportacaoController@storeImport"]);
+    });
+
 });

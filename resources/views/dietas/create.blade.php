@@ -55,8 +55,8 @@
         </div>
     </div>
     <div class="card-footer" style="text-align: right;">
-        <a class="btn btn-primary" href="{{ route('dietas') }}"> Voltar</a>
-        {!! Form::submit('Salvar', ['class'=>'btn btn-primary', 'style'=>'margin-right: 10px; margin-left: 5px;']) !!}
+        <a class="btn " id="btn-principal" href="{{ route('dietas') }}"> Voltar</a>
+        {!! Form::submit('Salvar', ['class'=>'btn', "id"=>"btn-principal", 'style'=>'margin-right: 10px; margin-left: 5px;']) !!}
     </div>
 </div>
 

@@ -8,7 +8,7 @@
                 <h2>Vacinas</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-info" href="{{ route('vacinas.create') }}">Novo Registro</a>
+                <a class="btn" id='btn-principal' href="{{ route('vacinas.create') }}">Novo Registro</a>
             </div>
         </div>
     </div>
@@ -26,20 +26,26 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($arrVacinas as $vacina)  
+                @if(!$arrVacinas->isEmpty())
+                    @foreach($arrVacinas as $vacina)  
+                        <tr>
+                            <td>{{ $vacina->IDVACINA}}</td>
+                            <td>{{ $vacina->NMVACINA}}</td>
+                            <td>{{ $vacina->DSFINALIDADE}}</td>
+                            <td>{{ $vacina->NMFABRICANTE}}</td>
+                            <td>{{ $vacina->QTDOSE}}</td>
+                            <td>{{ Carbon\Carbon::parse($vacina->DAVALIDADE)->format('d/m/Y') }}</td>
+                            <td style="display: flex; justify-content: center; padding: 9px;">
+                                <a href="{{ route('vacinas.edit', ['id'=>$vacina->IDVACINA]) }}" id="btn-tarefas" title='Editar' class="fa fa-edit" style="margin-right: 10px"></a>
+                                <a href="#" onclick="return ConfirmaExclusao({{$vacina->IDVACINA}})" class="fa fa-trash"id="btn-tarefas" title="Remover"></a>
+                            </td>
+                        </tr>
+                    @endforeach
+                @else
                     <tr>
-                        <td>{{ $vacina->IDVACINA}}</td>
-                        <td>{{ $vacina->NMVACINA}}</td>
-                        <td>{{ $vacina->DSFINALIDADE}}</td>
-                        <td>{{ $vacina->NMFABRICANTE}}</td>
-                        <td>{{ $vacina->QTDOSE}}</td>
-                        <td>{{ Carbon\Carbon::parse($vacina->DAVALIDADE)->format('d/m/Y') }}</td>
-                        <td style="display: flex; justify-content: center; padding: 9px;">
-                            <a href="{{ route('vacinas.edit', ['id'=>$vacina->IDVACINA]) }}" title='Editar' class="fa fa-edit" style="margin-right: 10px"></a>
-                            <a href="#" onclick="return ConfirmaExclusao({{$vacina->IDVACINA}})" class="fa fa-trash" title="Remover"></a>
-                        </td>
-                    </tr>
-                @endforeach
+                       <td colspan="7" style='text-align: center;'>Nenhum Registro Encontrado</td>
+                   </tr>   
+               @endif
             </tbody>
         </table>
     </div>

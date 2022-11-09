@@ -19,4 +19,8 @@ class Animal extends Model{
     public function gestacao(){
         return $this->hasMany("App\Models\Gestacao", "IDANIMAL");
     }
+
+    public function lotes(){
+        return $this->belongsTo("App\Models\LoteAnimal", "IDANIMAL");
+    }
 }
