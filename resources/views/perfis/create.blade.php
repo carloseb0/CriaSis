@@ -1,6 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
+<link href="{{ asset('../css/padrao.css') }}" rel="stylesheet">
 <link href="{{ asset('../css/app.css') }}" rel="stylesheet">
 <div class="card">
     <div class="card-header">

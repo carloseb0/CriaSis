@@ -1,5 +1,6 @@
 @extends('layouts.default')
 @section('content')
+<link href="{{ asset('../css/padrao.css') }}" rel="stylesheet">
 <link href="{{ asset('../css/app.css') }}" rel="stylesheet">
 <div class="card">
     <div class="card-header">
@@ -19,7 +20,6 @@
                     <th>Cód.</th>
                     <th>Nome</th>
                     <th>Cultura</th>
-                    <th>Dt. Liberação</th>
                     <th>Ativo</th>
                     <th width="10%">Ações</th>
                 </tr>
@@ -31,7 +31,6 @@
                             <td>{{ $pastagem->IDPASTAGEM}}</td>
                             <td>{{ $pastagem->NMPASTAGEM}}</td>
                             <td>{{ $pastagem->DSTPCULTURA}}</td>
-                            <td>{{ Carbon\Carbon::parse($pastagem->DALIBERACAO)->format('d/m/Y') }}</td>
                             <td>{{ $pastagem->DSFLATIVO}}</td>
                             <td style="display: flex; justify-content: center; padding: 9px;">
                                 <a href="{{ route('pastagens.edit', ['id'=>$pastagem->IDPASTAGEM]) }}" title='Editar' class="fa fa-edit"id="btn-tarefas"style="margin-right: 10px"></a>

@@ -1,5 +1,6 @@
 @extends('layouts.default')
-
+<link href="{{ asset('../css/padrao.css') }}" rel="stylesheet">
+<link href="{{ asset('../css/app.css') }}" rel="stylesheet">
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

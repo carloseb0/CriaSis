@@ -1,4 +1,5 @@
 @extends('layouts.app')
+<link href="{{ asset('../css/padrao.css') }}" rel="stylesheet">
 
 @section('content')
 <div class="container">

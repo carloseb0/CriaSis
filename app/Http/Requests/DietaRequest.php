@@ -25,7 +25,7 @@ class DietaRequest extends FormRequest
     {
         return [
             'NMDIETA'=> 'required|max:100',
-            'DSDIETA'=> 'required|max:300',
+            'DSDIETA'=> 'required',
             'TPUSODIETA'=> 'required|max:1',
             'IDRACAO'=> 'required',
             'FLATIVO'=> 'required|max:1',

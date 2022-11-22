@@ -1,6 +1,7 @@
 @extends('adminlte::page')
 
 @section('content')
+<link href="{{ asset('../css/padrao.css') }}" rel="stylesheet">
 <link href="{{ asset('../css/app.css') }}" rel="stylesheet">
 <div class="card">
     <div class="card-header">
@@ -44,13 +45,13 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     {!! Form::label('DSPASTAGEM', 'Descrição')!!}
-                    {!! Form::textarea('DSPASTAGEM', $pastagem->DSPASTAGEM, ['class'=>'form-control', 'required', 'rows'=>4]) !!}              
+                    {!! Form::textarea('DSPASTAGEM', $pastagem->DSPASTAGEM, ['class'=>'form-control', 'required', 'rows'=>8]) !!}              
                 </div>
             </div>
         </div>
     </div>
     <div class="card-footer" style="text-align: right;">
-        <a class="btn" id="btn-principal" href="{{ route('animais') }}"> Voltar</a>
+        <a class="btn" id="btn-principal" href="{{ route('pastagens') }}"> Voltar</a>
         {!! Form::submit('Editar', ['class'=>'btn', "id"=>"btn-principal", 'style'=>'margin-right: 10px; margin-left: 5px;']) !!}
     </div>
 </div>

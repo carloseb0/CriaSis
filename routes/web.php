@@ -115,9 +115,23 @@ Route::group(['middleware' => 'auth'], function(){
         Route::put('{id}/update', ['as'=>'lotes.update', 'uses'=>"\App\Http\Controllers\LoteController@update"]);
     });
     
-    Route::group(['prefix'=>'importacoes', 'where'=>['id'=>'[0-9]+']], function() {
-        Route::get('', ['as'=>'importacoes', 'uses'=>"\App\Http\Controllers\ImportacaoController@import"]);
-        Route::post('storeImport', ['as'=>'importacoes.storeImport', 'uses'=>"\App\Http\Controllers\ImportacaoController@storeImport"]);
+    // Route::group(['prefix'=>'importacoes', 'where'=>['id'=>'[0-9]+']], function() {
+    //     Route::get('', ['as'=>'importacoes', 'uses'=>"\App\Http\Controllers\ImportacaoController@import"]);
+    //     Route::post('storeImport', ['as'=>'importacoes.storeImport', 'uses'=>"\App\Http\Controllers\ImportacaoController@storeImport"]);
+    // });
+
+    Route::group(['prefix'=>'gerenciamentos', 'where'=>['id'=>'[0-9]+']], function() {
+        Route::get('', ['as'=>'gerenciamentos', 'uses'=>"\App\Http\Controllers\GerenciamentoController@index"]);
+        Route::get('create', ['as'=>'gerenciamentos.create', 'uses'=>"\App\Http\Controllers\GerenciamentoController@create"]);
+        Route::post('store', ['as'=>'gerenciamentos.store', 'uses'=>"\App\Http\Controllers\GerenciamentoController@store"]);
+        Route::get('{id}/destroy', ['as'=>'gerenciamentos.destroy', 'uses'=>"\App\Http\Controllers\GerenciamentoController@destroy"]);
+        Route::get('{id}/edit', ['as'=>'gerenciamentos.edit', 'uses'=>"\App\Http\Controllers\GerenciamentoController@edit"]);
+        Route::put('{id}/update', ['as'=>'gerenciamentos.update', 'uses'=>"\App\Http\Controllers\GerenciamentoController@update"]);
+    });
+
+    Route::group(['prefix'=>'relvacinas', 'where'=>['id'=>'[0-9]+']], function() {
+        Route::any('', ['as'=>'relvacinas', 'uses'=>"\App\Http\Controllers\RelVacinaController@index"]);
+        Route::get('exportacao', ['as'=>'relvacinas.exportacao', 'uses'=>"\App\Http\Controllers\RelVacinaController@exportacao"]);
     });
 
 });

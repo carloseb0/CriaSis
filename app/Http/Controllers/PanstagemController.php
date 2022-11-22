@@ -15,11 +15,13 @@ class PanstagemController extends Controller
                                             WHEN FLATIVO = "s" THEN "Sim"
                                             ELSE "Não"
                                             END) AS DSFLATIVO'),
-                                        \DB::raw('(CASE 
-                                            WHEN TPCULTURA = "S" THEN "Sorgo"
-                                                WHEN "C"
-                                            THEN "Capim"
-                                            ELSE "Gramado"
+                                        \DB::raw('(CASE TPCULTURA
+                                            WHEN "S" 
+                                                THEN "Sorgo"
+                                            WHEN "C"
+                                                THEN "Capim"
+                                            WHEN "G"
+                                                THEN "Gramado"
                                             END) AS DSTPCULTURA'))
                                     ->paginate(10);
 

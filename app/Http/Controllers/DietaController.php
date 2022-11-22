@@ -16,12 +16,13 @@ class DietaController extends Controller
                                         WHEN FLATIVO = "s" THEN "Sim"
                                         ELSE "Não"
                                         END) AS DSFLATIVO'),
-                                    \DB::raw('(CASE 
-                                        WHEN TPUSODIETA = "E" 
+                                    \DB::raw('(CASE TPUSODIETA
+                                        WHEN "E" 
                                             THEN "Engorda"
                                         WHEN "C"
                                             THEN "Crescimento"
-                                        ELSE "Produção"
+                                        WHEN "P"
+                                            THEN "Produção"
                                         END) AS DSTPUSODIETA'))
                                 ->paginate(10);
 

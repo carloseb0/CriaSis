@@ -1,5 +1,6 @@
 @extends('layouts.default')
 @section('content')
+<link href="{{ asset('../css/padrao.css') }}" rel="stylesheet">
 <link href="{{ asset('../css/app.css') }}" rel="stylesheet">
 <div class="card">
     <div class="card-header">
@@ -19,7 +20,6 @@
                     <th>Cód.</th>
                     <th>Nome</th>
                     <th>Finalidade</th>
-                    <th>Fabricante</th>
                     <th>Dose</th>
                     <th>Dt. Validade</th>
                     <th width="10%">Ações</th>
@@ -32,7 +32,6 @@
                             <td>{{ $vacina->IDVACINA}}</td>
                             <td>{{ $vacina->NMVACINA}}</td>
                             <td>{{ $vacina->DSFINALIDADE}}</td>
-                            <td>{{ $vacina->NMFABRICANTE}}</td>
                             <td>{{ $vacina->QTDOSE}}</td>
                             <td>{{ Carbon\Carbon::parse($vacina->DAVALIDADE)->format('d/m/Y') }}</td>
                             <td style="display: flex; justify-content: center; padding: 9px;">

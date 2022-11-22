@@ -1,6 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
+<link href="{{ asset('../css/padrao.css') }}" rel="stylesheet">
 <link href="{{ asset('../css/app.css') }}" rel="stylesheet">
 <div class="card">
     <div class="card-header">
@@ -68,7 +69,7 @@
     </div>
     <div class="card-footer">
         <div class="col-xs-12 col-sm-12 col-md-12 text-right">
-            <a class="btn" id="btn-principal" href="{{ route('animais') }}"> Voltar</a>
+            <a class="btn" id="btn-principal" href="{{ route('racoes') }}"> Voltar</a>
             {!! Form::submit('Salvar', ['class'=>'btn', "id"=>"btn-principal", 'style'=>'margin-right: 10px; margin-left: 5px;']) !!}
         </div>
     </div>

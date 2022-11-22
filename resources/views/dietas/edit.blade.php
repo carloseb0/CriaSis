@@ -1,6 +1,7 @@
 @extends('adminlte::page')
 
 @section('content')
+<link href="{{ asset('../css/padrao.css') }}" rel="stylesheet">
 <link href="{{ asset('../css/app.css') }}" rel="stylesheet">
 <div class="card">
     <div class="card-header">
@@ -50,7 +51,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     {!! Form::label('DSDIETA', 'Descrição')!!}
-                    {!! Form::textarea('DSDIETA', $dieta->DSDIETA, ['class'=>'form-control', 'required', 'rows'=>4]) !!}                
+                    {!! Form::textarea('DSDIETA', $dieta->DSDIETA, ['class'=>'form-control', 'required', 'rows'=>8]) !!}                
                 </div>
             </div>
         </div>
