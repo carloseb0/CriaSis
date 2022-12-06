@@ -296,37 +296,37 @@ return [
                 [
                     'text' => 'Animais',
                     'url' => 'animais',
-                    'icon' => 'fa-solid fa-cow',
+                    'icon' => 'fa fa-gear',
                     'can' => 'veterinario-admin'
                 ],
                 [
                     'text' => 'Raça',
                     'url' => 'racas',
-                    'icon' => '',
+                    'icon' => 'fa fa-gear',
                     'can' => 'veterinario-admin'
                 ],
                 [
                     'text' => '  Vacina',
                     'url' => 'vacinas',
-                    'icon' => 'fa fa-syringe',
+                    'icon' => 'fa fa-gear',
                     'can' => 'veterinario-admin'
                 ],
                 [
                     'text' => 'Dieta',
                     'url' => 'dietas',
-                    'icon' => 'fa-solid fa-bowl-food',
+                    'icon' => 'fa fa-gear',
                     'can' => 'veterinario-admin'
                 ],
                 [
                     'text' => 'Ração',
                     'url' => 'racoes',
-                    'icon' => '',
+                    'icon' => 'fa fa-gear',
                     'can' => 'veterinario-admin'
                 ],
                 [
                     'text' => 'Pastagem',
                     'url' => 'pastagens',
-                    'icon' => 'fa fa-ticket',
+                    'icon' => 'fa fa-gear',
                     'can' => 'veterinario-admin'
                 ],
                 [
@@ -349,7 +349,7 @@ return [
                 [
                     'text' => 'Criação de Lote',
                     'url' => 'lotes',
-                    'icon' => 'fa fa-clipboard',
+                    'icon' => 'fa fa-gear',
                     'can' => 'veterinario-admin'
                 ],
                 [
@@ -359,9 +359,9 @@ return [
                     'can' => 'veterinario-admin'
                 ],
                 [
-                    'text' => 'Gestação',
+                    'text' => 'Gestações',
                     'url' => 'gestacoes',
-                    'icon' => 'fa fa-list',
+                    'icon' => 'fa fa-gear',
                     'can' => 'veterinario-admin'
                 ],
             ],
@@ -372,7 +372,19 @@ return [
                 [
                     'text' => 'Vacinas',
                     'url' => 'relvacinas',
-                    'icon' => '',
+                    'icon' => 'fa fa-list',
+                    'can' => 'veterinario-admin'
+                ],
+                [
+                    'text' => 'Lotes Pastagem',
+                    'url' => 'relpastagens',
+                    'icon' => 'fa fa-list',
+                    'can' => 'veterinario-admin'
+                ],
+                [
+                    'text' => 'Gestações',
+                    'url' => 'relgestacoes',
+                    'icon' => 'fa fa-list',
                     'can' => 'veterinario-admin'
                 ],
             ],

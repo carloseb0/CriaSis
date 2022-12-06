@@ -40,7 +40,7 @@
             <div class="col-xs-2 col-sm-2 col-md-2">
                 <div class="form-group">
                     {!! Form::label('IDPASTAGEM', 'Pastagem')!!}
-                    {!! Form::select('IDPASTAGEM', App\Models\Pastagem::where("FLATIVO", 'S')->orderBy('NMPASTAGEM')->pluck('NMPASTAGEM', 'IDPASTAGEM')->toArray(), null, ['class'=>'form-control', 'required', 'placeholder'=>'Selecione:']) !!}                
+                    {!! Form::select('IDPASTAGEM', App\Models\Pastagem::where("DALIBERACAO", "<=", date('Y-m-d'))->orWhere('DALIBERACAO', '=', NULL)->orderBy('NMPASTAGEM')->pluck('NMPASTAGEM', 'IDPASTAGEM')->toArray(), null, ['class'=>'form-control', 'required', 'placeholder'=>'Selecione:']) !!}                
                 </div>
             </div>
 
@@ -92,7 +92,7 @@
         var x=0;
         $(add_button).click(function(e){
         x++;
-        var newField = '<div id="divMasterDetail"><div style="width:60%; float:left" id="vacina">{!! Form::select("vacinas[]", App\Models\Vacina::orderBy("NMVACINA")->pluck("NMVACINA", "IDVACINA")->toArray(), null,["class"=>"form-control", "required", "placeholder"=>"Selecione:"]) !!}<div style="width:40%;">{!! Form::date("DTAPLICACAO", null, ["class"=>"form-control", "required"]) !!}  </div></div><button type="button" class="remove_field btn btn-danger btn-circle"><i class="fa fa-times"></button></div>';
+        var newField = '<div id="divMasterDetail"><div style="width:95%; float:left; display: flex;" id="vacina">{!! Form::select("vacinas[]", App\Models\Vacina::orderBy("NMVACINA")->pluck("NMVACINA", "IDVACINA")->toArray(), null,["class"=>"form-control", "required", "placeholder"=>"Selecione:"]) !!}<div style="width:40%; margin-left: 10px;">{!! Form::date("DTAPLICACAO", null, ["name"=>"dataaplica[]", "class"=>"form-control", "required"]) !!}  </div></div><button type="button" class="remove_field btn btn-danger btn-circle"><i class="fa fa-times"></button></div>';
         $(wrapper).append(newField);
     });
     $(wrapper).on("click",".remove_field", function(e){

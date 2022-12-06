@@ -24,7 +24,7 @@
     @csrf
     <div class="card-body">
         <div class="row">
-            <div class="col-xs-2 col-sm-2 col-md-2">
+            <div class="col-xs-4 col-sm-4 col-md-4">
                 <div class="form-group">
                     {!! Form::label('NMLOTE', 'Nome')!!}   
                     {!! Form::text('NMLOTE', $lote->NMLOTE, ['class'=>'form-control', 'required']) !!}
@@ -39,7 +39,7 @@
             </div>
             <div class="col-xs-12 col-sm-22 col-md-22">
                 <div class="form-group">
-                    {!! Form::label('DSDESCRICAO', 'Imformações')!!}   
+                    {!! Form::label('DSDESCRICAO', 'Descrição')!!}   
                     {!! Form::textarea('DSDESCRICAO', $lote->DSDESCRICAO, ['class'=>'form-control', 'required', 'rows'=>4]) !!}      
                 </div>
             </div>

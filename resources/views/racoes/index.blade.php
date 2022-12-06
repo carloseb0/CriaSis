@@ -9,7 +9,7 @@
                 <h2>Ração</h2>
             </div>
             <div>
-                <a class="btn btn-info" href="{{ route('racoes.create') }}">Novo Registro</a>
+                <a class="btn" id="btn-principal" href="{{ route('racoes.create') }}">Novo Registro</a>
             </div>
         </div>
     </div>

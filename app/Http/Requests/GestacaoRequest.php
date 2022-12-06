@@ -27,7 +27,7 @@ class GestacaoRequest extends FormRequest
             'IDANIMAL'=> 'required',
             'DAINSEMINACAO'=> 'required|date',
             'DANASCIMENTOESTIMADO'=> 'required|date',
-            'TPCUIDADO'=> 'required|max:5',
+            'TPCUIDADO'=> 'required|max:1',
         ];
     }
 }

@@ -10908,3 +10908,12 @@ textarea.form-control-lg {
 .input-group-btn{
   margin-top: 23px;
 }
+
+.brand-link{
+  display: flex;
+  justify-content: center;
+}
+
+.body{
+  font-size: smaller;
+}

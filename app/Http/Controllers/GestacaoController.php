@@ -10,7 +10,18 @@ class GestacaoController extends Controller
 {
     public function index(){
         // Como fazer get com wherer : Raca::where('FLATIVO', '=', 'S')->get();
-        $arrGestacoes = Gestacao::orderBy('IDGESTACAO')->paginate(10);
+
+        $arrGestacoes = Gestacao::select("gestacao.*",
+                                    \DB::raw('(CASE TPCUIDADO 
+                                                    WHEN "B" 
+                                                        THEN "Baixo"
+                                                    WHEN "M"
+                                                        THEN "Médio"
+                                                    WHEN "A"
+                                                        THEN 
+                                                            "Alto"
+                                                END) AS DSTPCUIDADO'))
+                                ->paginate(10);
 
         return view('gestacoes.index', ['arrGestacoes'=>$arrGestacoes]);
     }

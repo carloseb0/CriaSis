@@ -33,7 +33,7 @@ class AuthServiceProvider extends ServiceProvider
             if ($user->IDPERFIL === 1) {
                 return Response::allow();
             } else {
-                return Response::deny('ACESSO NEGADO!! Você não possui Perfmissão');
+                return Response::deny('ACESSO NEGADO!! Você não possui Permissão');
             }
         });
 
@@ -42,7 +42,7 @@ class AuthServiceProvider extends ServiceProvider
             if ($user->IDPERFIL === 2) {
                 return Response::allow();
             } else {
-                return Response::deny('ACESSO NEGADO!! Você não possui Perfmissão');
+                return Response::deny('ACESSO NEGADO!! Você não possui Permissão');
             }
         });
 
@@ -51,7 +51,7 @@ class AuthServiceProvider extends ServiceProvider
             if ($user->IDPERFIL === 2 or $user->IDPERFIL === 1) {
                 return Response::allow();
             } else {
-                return Response::deny('ACESSO NEGADO!! Você não possui Perfmissão');
+                return Response::deny('ACESSO NEGADO!! Você não possui Permissão');
             }
         });
     }

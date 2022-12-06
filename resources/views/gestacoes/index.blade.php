@@ -6,7 +6,7 @@
     <div class="card-header">
         <div class="col-lg-12 margin-tb" style='display: flex; justify-content: space-between;'>
             <div>
-                <h2>Gestações</h2>
+                <h2>Gestação</h2>
             </div>
             <div>
                 <a class="btn" id="btn-principal" href="{{ route('gestacoes.create') }}">Novo Registro</a>
@@ -33,7 +33,7 @@
                             <td>{{ $gestacao->animais->CODANIMAL}}</td>
                             <td>{{ Carbon\Carbon::parse($gestacao->DAINSEMINACAO)->format('d/m/Y') }}</td>
                             <td>{{ Carbon\Carbon::parse($gestacao->DANASCIMENTOESTIMADO)->format('d/m/Y') }}</td>
-                            <td>{{ $gestacao->TPCUIDADO}}</td>
+                            <td>{{ $gestacao->DSTPCUIDADO}}</td>
                             <td style="display: flex; justify-content: center; padding: 8px;">
                                 <a href="{{ route('gestacoes.edit', ['id'=>$gestacao->IDGESTACAO]) }}" title='Editar' id="btn-tarefas"  id="btn-tarefas" class="fa fa-edit" style="margin-right: 10px"></a>
                                 <a href="#" onclick="return ConfirmaExclusao({{$gestacao->IDGESTACAO}})" class="fa fa-trash" id="btn-tarefas"  id="btn-tarefas"title="Remover"></a>

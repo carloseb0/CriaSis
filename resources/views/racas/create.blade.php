@@ -8,7 +8,7 @@
     <div class="card-header">
         <div class="col-lg-12 margin-tb" style='display: flex; justify-content: space-between;'>
             <div>
-                <h2>Raças</h2>
+                <h2>Raça</h2>
             </div>
         </div>
     </div>

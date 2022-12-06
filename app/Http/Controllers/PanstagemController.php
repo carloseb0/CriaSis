@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PastagemRequest;
-use App\Models\Pastagem;;
+use App\Models\Pastagem;
 
 class PanstagemController extends Controller
 {

@@ -45,7 +45,7 @@
             <div class="col-xs-2 col-sm-2 col-md-2">
                 <div class="form-group">
                     {!! Form::label('TPCUIDADO', 'Cuidado')!!}
-                    {!! Form::select('TPCUIDADO', ['Baixo'=>'Baixo', 'Médio'=>'Médio', 'Alto'=>'Alto'], $gestacao->TPCUIDADO,['class'=>'form-control', 'required', 'placeholder'=>'Selecione:']) !!}                           
+                    {!! Form::select('TPCUIDADO', ['B'=>'Baixo', 'M'=>'Médio', 'A'=>'Alto'], $gestacao->TPCUIDADO,['class'=>'form-control', 'required', 'placeholder'=>'Selecione:']) !!}                           
                 </div>
             </div>
         </div>

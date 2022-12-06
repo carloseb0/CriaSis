@@ -26,7 +26,7 @@
             <div class="col-xs-2 col-sm-2 col-md-2">
                 <div class="form-group">
                     {!! Form::label('IDANIMAL', 'Animal')!!}
-                    {!! Form::select('IDANIMAL', App\Models\Animal::orderBy('CODANIMAL')->pluck('CODANIMAL', 'IDANIMAL')->toArray(), null,['class'=>'form-control', 'required', 'placeholder'=>'Selecione:']) !!}                           
+                    {!! Form::select('IDANIMAL', App\Models\Animal::where("TPSEXO", 'F')->orderBy('CODANIMAL')->pluck('CODANIMAL', 'IDANIMAL')->toArray(), null,['class'=>'form-control', 'required', 'placeholder'=>'Selecione:']) !!}                           
                 </div>
             </div>
             <div class="col-xs-2 col-sm-2 col-md-2">
@@ -44,7 +44,7 @@
             <div class="col-xs-2 col-sm-2 col-md-2">
                 <div class="form-group">
                     {!! Form::label('TPCUIDADO', 'Cuidado')!!}
-                    {!! Form::select('TPCUIDADO', ['Baixo'=>'Baixo', 'Médio'=>'Médio', 'Alto'=>'Alto'], null,['class'=>'form-control', 'required', 'placeholder'=>'Selecione:']) !!}                           
+                    {!! Form::select('TPCUIDADO', ['B'=>'Baixo', 'M'=>'Médio', 'A'=>'Alto'], null,['class'=>'form-control', 'required', 'placeholder'=>'Selecione:']) !!}                           
                 </div>
             </div>
         </div>

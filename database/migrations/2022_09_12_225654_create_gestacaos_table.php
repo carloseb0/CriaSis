@@ -19,7 +19,7 @@ class CreateGestacaosTable extends Migration
             $table->foreign('IDANIMAL')->references('IDANIMAL')->on('animal');
             $table->date('DAINSEMINACAO');
             $table->date('DANASCIMENTOESTIMADO');
-            $table->string('TPCUIDADO', 5);
+            $table->string('TPCUIDADO', 1);
             $table->timestamps();
         });
     }

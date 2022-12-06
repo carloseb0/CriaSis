@@ -6,7 +6,7 @@
     <div class="card-header">
         <div class="col-lg-12 margin-tb" style='display: flex; justify-content: space-between;'>
             <div class="pull-left">
-                <h2>Gerenciamento De Animais</h2>
+                <h2>Gerenciamento De Animal</h2>
             </div>
             <div class="pull-right">
                 <a class="btn" id='btn-principal' href="{{ route('gerenciamentos.create') }}">Novo Registro</a>
