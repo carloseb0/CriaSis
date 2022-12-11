@@ -22,6 +22,7 @@ class CreateGerenciamentosTable extends Migration
             $table->bigInteger('IDPASTAGEM')->unsigned();
             $table->foreign('IDPASTAGEM')->references('IDPASTAGEM')->on('pastagem');
             $table->longText('DSOBSERVACOES');
+            $table->string('FLATIVO', 1)->nullable();
             $table->timestamps();
         });
     }

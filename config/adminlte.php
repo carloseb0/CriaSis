@@ -387,6 +387,12 @@ return [
                     'icon' => 'fa fa-list',
                     'can' => 'veterinario-admin'
                 ],
+                [
+                    'text' => 'Animais',
+                    'url' => 'relanimais',
+                    'icon' => 'fa fa-list',
+                    'can' => 'veterinario-admin'
+                ],
             ],
 
         ],

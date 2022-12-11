@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\RelGestacaoExport;
 
 class RelGestacaoController extends Controller
 {
@@ -11,8 +13,8 @@ class RelGestacaoController extends Controller
         if ($filtragem == null) {
             $arrRelGestacoes = \DB::table('gestacao')
                 ->join('animal', 'animal.IDANIMAL', '=', 'gestacao.IDANIMAL')
-                ->join('lote_animal', 'animal.IDANIMAL', '=', 'lote_animal.IDANIMAL')
-                ->join('lote', 'lote_animal.IDLOTE', '=', 'lote.IDLOTE')
+                ->leftJoin('lote_animal', 'animal.IDANIMAL', '=', 'lote_animal.IDANIMAL')
+                ->leftJoin('lote', 'lote_animal.IDLOTE', '=', 'lote.IDLOTE')
                 ->select('animal.CODANIMAL', 'lote.NMLOTE', 'gestacao.DANASCIMENTOESTIMADO',            
                 \DB::raw('(CASE TPCUIDADO 
                             WHEN "B" 
@@ -28,8 +30,8 @@ class RelGestacaoController extends Controller
         else
             $arrRelGestacoes = \DB::table('gestacao')
                     ->join('animal', 'animal.IDANIMAL', '=', 'gestacao.IDANIMAL')
-                    ->join('lote_animal', 'animal.IDANIMAL', '=', 'lote_animal.IDANIMAL')
-                    ->join('lote', 'lote_animal.IDLOTE', '=', 'lote.IDLOTE')
+                    ->leftJoin('lote_animal', 'animal.IDANIMAL', '=', 'lote_animal.IDANIMAL')
+                    ->leftJoin('lote', 'lote_animal.IDLOTE', '=', 'lote.IDLOTE')
                     ->select('animal.CODANIMAL', 'lote.NMLOTE', 'gestacao.DANASCIMENTOESTIMADO',       
                     \DB::raw('(CASE TPCUIDADO 
                                 WHEN "B" 
@@ -49,6 +51,6 @@ class RelGestacaoController extends Controller
     }
 
     public function exportacao() {
-        return Excel::download(new RelVacinasExport, 'vacinas.xlsx');
+        return Excel::download(new RelGestacaoExport, 'gestacoes.xlsx');
     }
 }

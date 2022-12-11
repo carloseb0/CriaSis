@@ -127,6 +127,7 @@ Route::group(['middleware' => 'auth'], function(){
             Route::get('{id}/destroy', ['as'=>'gerenciamentos.destroy', 'uses'=>"\App\Http\Controllers\GerenciamentoController@destroy"]);
             Route::get('{id}/edit', ['as'=>'gerenciamentos.edit', 'uses'=>"\App\Http\Controllers\GerenciamentoController@edit"]);
             Route::put('{id}/update', ['as'=>'gerenciamentos.update', 'uses'=>"\App\Http\Controllers\GerenciamentoController@update"]);
+            Route::get('{id}/finalizar', ['as'=>'gerenciamentos.finalizar', 'uses'=>"\App\Http\Controllers\GerenciamentoController@finalizar"]);
         });
 
         Route::group(['prefix'=>'relvacinas', 'where'=>['id'=>'[0-9]+']], function() {
@@ -142,6 +143,11 @@ Route::group(['middleware' => 'auth'], function(){
         Route::group(['prefix'=>'relgestacoes', 'where'=>['id'=>'[0-9]+']], function() {
             Route::any('', ['as'=>'relgestacoes', 'uses'=>"\App\Http\Controllers\RelGestacaoController@index"]);
             Route::get('exportacao', ['as'=>'relgestacoes.exportacao', 'uses'=>"\App\Http\Controllers\RelGestacaoController@exportacao"]);
+        });
+
+        Route::group(['prefix'=>'relanimais', 'where'=>['id'=>'[0-9]+']], function() {
+            Route::any('', ['as'=>'relanimais', 'uses'=>"\App\Http\Controllers\RelAnimaisController@index"]);
+            Route::get('exportacao', ['as'=>'relanimais.exportacao', 'uses'=>"\App\Http\Controllers\RelAnimaisController@exportacao"]);
         });
     });
 

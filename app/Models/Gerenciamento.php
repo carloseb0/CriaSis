@@ -10,7 +10,7 @@ class Gerenciamento extends Model
     use HasFactory;
     protected $table = "gerenciamento";
     protected $primaryKey = "IDGERENCIAMENTO";
-    protected $fillable = ['IDLOTE', 'IDDIETA', 'IDPASTAGEM', 'DSOBSERVACOES'];
+    protected $fillable = ['IDLOTE', 'IDDIETA', 'IDPASTAGEM', 'DSOBSERVACOES', 'FLATIVO'];
 
     public function lote(){
         return $this->belongsTo("App\Models\Lote", 'IDLOTE');

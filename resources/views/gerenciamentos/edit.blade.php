@@ -58,7 +58,7 @@
                     <table class='table talbe-stipe table-bordered table-hover table-sm'>
                         <thead>
                             <tr>
-                                <th colspan="3" style="display: flex; flex-wrap: wrap; flex-direction: column;"><button class="add_field_button btn-add" title="Adicionar" id='btnAdicionarAnimal'>Adicionar</button></th>
+                                <th colspan="2" style="display: flex; flex-wrap: wrap; flex-direction: column;"><button class="add_field_button btn-add" title="Adicionar" id='btnAdicionarAnimal'>Adicionar</button></th>
                             </tr>
                         </thead>
                         <tbody id='body'>
@@ -66,7 +66,6 @@
                             @foreach($gerenciamento->vacinas as $a)
                                 <tr id='tr-vacina'>
                                     <td>{{ $a->vacina->NMVACINA}}</td>
-                                    <td>{{ $a->vacina->DTAPLICACAO}}</td>
                                     <td style="width: 35px; padding: 1px; text-align: end;"> <a href="#" onclick="return ConfirmaExclusao({{$gerenciamento->IDGERENCIAMENTOVACINA}})" class="fa fa-trash" id="btn-tarefas"  id="btn-tarefas"title="Remover"></a> </td>
                                 </tr>
                             @endforeach
@@ -95,7 +94,7 @@
         var x=0;
         $(add_button).click(function(e){
         x++;
-        var newField = '<div id="divMasterDetail"><div style="width:95%; float:left; display: flex;" id="vacina"><tr>{!! Form::select("vacinas[]", App\Models\Vacina::orderBy("NMVACINA")->pluck("NMVACINA", "IDVACINA")->toArray(), null,["class"=>"form-control", "required", "placeholder"=>"Selecione:"]) !!} <div style="width:40%; margin-left: 10px;">{!! Form::date("DTAPLICACAO", null, ["name"=>"dataaplica[]", "class"=>"form-control", "required"]) !!}  </div></div><button type="button" class="remove_field btn btn-danger btn-circle"><i class="fa fa-times"></button></div></tr>';
+        var newField = '<div id="divMasterDetail"><div style="width:95%; float:left; display: flex;" id="vacina"><tr>{!! Form::select("vacinas[]", App\Models\Vacina::orderBy("NMVACINA")->pluck("NMVACINA", "IDVACINA")->toArray(), null,["class"=>"form-control", "required", "placeholder"=>"Selecione:"]) !!} <div style="width:40%; margin-left: 10px;">{!! Form::date("DTAPLICACAO", null, ["name"=>"dataaplica[]", "class"=>"form-control", "required"]) !!}  </div></div><button type="button" class="remove_field btn btn-danger btn-circle" style="background: red;"><i class="fa fa-times"></button></div></tr>';
         $(wrapper).append(newField);
     });
     

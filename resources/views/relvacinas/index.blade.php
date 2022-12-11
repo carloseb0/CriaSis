@@ -37,7 +37,7 @@
                 <tr>
                     <th>Lote</th>
                     <th>Vacina</th>
-                    <th>Finalidade</th>
+                    <th>Dose</th>
                     <th>Dt. Aplicação</th>
                 </tr>
             </thead>
@@ -47,7 +47,7 @@
                         <tr>
                             <td>{{ $vacina->NMLOTE}}</td>
                             <td>{{ $vacina->NMVACINA}}</td>
-                            <td>{{ $vacina->DSFINALIDADE}}</td>
+                            <td>{{ $vacina->QTDOSE}}</td>
                             <td>{{ Carbon\Carbon::parse($vacina->DTAPLICACAO)->format('d/m/Y') }}</td>
                         </tr>
                     @endforeach

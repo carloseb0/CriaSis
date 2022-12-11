@@ -52,7 +52,7 @@
                                 <th colspan="2" style="display: flex; flex-wrap: wrap; flex-direction: column;"><button class="add_field_button btn-add" title="Adicionar" id='btnAdicionarAnimal'>Adicionar</button></th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id='body'>
 
                             @foreach($lote->animais as $a)
                                 <tr id='tr-animal'>
@@ -80,12 +80,12 @@
 @section('js')
 <script>
     $(document).ready(function(){
-        var wrapper = $("#td-animal");
+        var wrapper = $("#body");
         var add_button = $(".add_field_button");
         var x=0;
         $(add_button).click(function(e){
         x++;
-        var newField = '<div id="divMasterDetail"><div style="width:94%; float:left" id="animal">{!! Form::select("animais[]", App\Models\Animal::orderBy("CODANIMAL")->pluck("CODANIMAL", "IDANIMAL")->toArray(), null,["class"=>"form-control", "required", "placeholder"=>"Selecione:"]) !!}</div><button type="button" class="remove_field btn btn-danger btn-circle"><i class="fa fa-times"></button></div>';
+        var newField = '<div id="divMasterDetail"><div style="width:94%; float:left" id="animal"><tr>{!! Form::select("animais[]", App\Models\Animal::orderBy("CODANIMAL")->pluck("CODANIMAL", "IDANIMAL")->toArray(), null,["class"=>"form-control", "required", "placeholder"=>"Selecione:"]) !!}</div><button type="button" class="remove_field btn btn-danger btn-circle" style="background: red;"><i class="fa fa-times"></button></div></tr>';
         $(wrapper).append(newField);
     });
     $(wrapper).on("click",".remove_field", function(e){

@@ -6,11 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\Gerenciamento;
 use App\Models\GerenciamentoVacina;
 use App\Models\Pastagem;
+use App\Models\Lote;
 
 class GerenciamentoController extends Controller
 {
     public function index(){
-        $arrGerenciamento = Gerenciamento::orderBy('IDGERENCIAMENTO')->paginate(10);
+        $arrGerenciamento = Gerenciamento::where('FLATIVO', 'S')->orderBy('IDGERENCIAMENTO')->paginate(10);
         return view('gerenciamentos.index', ['arrGerenciamento'=>$arrGerenciamento]);
     }
 
@@ -24,11 +25,12 @@ class GerenciamentoController extends Controller
                             'IDLOTE' => $request->get('IDLOTE'),
                             'IDDIETA' => $request->get('IDDIETA'),
                             'IDPASTAGEM' => $request->get('IDPASTAGEM'),
-                            'DSOBSERVACOES' => $request->get('DSOBSERVACOES')
+                            'DSOBSERVACOES' => $request->get('DSOBSERVACOES'),
+                            'FLATIVO' => "S"
                         ]);
 
         // Edita DALIBERACAO da pastagem
-        Pastagem::where('IDPASTAGEM', $request->get('IDPASTAGEM'))->update(['DALIBERACAO' => date('Y-m-d', strtotime(date('Y-m-d'). ' + 7 days'))]);
+        Pastagem::where('IDPASTAGEM', $request->get('IDPASTAGEM'))->update(['DALIBERACAO' => date('Y-m-d', strtotime(date('Y-m-d'). ' + 15 days'))]);
 
         //Cria gerenciamento_vacinas
         $arrVacinas = $request->vacinas;
@@ -49,32 +51,14 @@ class GerenciamentoController extends Controller
     public function edit($id){
         $gerenciamento = Gerenciamento::where('IDGERENCIAMENTO', $id)->first();
 
-
-        // $gerenciamento = \DB::table('gerenciamento')
-        //                 ->join('gerenciamento_vacinas', 'gerenciamento.IDGERENCIAMENTO', '=', 'gerenciamento_vacinas.IDGERENCIAMENTO')
-        //                 ->select('gerenciamento.*')
-        //                 ->where('gerenciamento.IDGERENCIAMENTO', '=', $id)
-        //                 ->orderBy('gerenciamento.IDGERENCIAMENTO', 'asc')
-        //                 ->get()
-        //                 ->first();
-
-        //                 $gerenciamento = \DB::table('gerenciamento')
-        //                                     ->join('gerenciamento_vacinas', 'gerenciamento.IDGERENCIAMENTO', '=', 'gerenciamento_vacinas.IDGERENCIAMENTO')
-        //                                     ->select('gerenciamento.*')
-        //                                     ->where('gerenciamento.IDGERENCIAMENTO', '=', $id)
-        //                                     ->orderBy('gerenciamento.IDGERENCIAMENTO', 'asc')
-        //                                     ->get()
-        //                                     ->first();
-
-
-                        // dd($gerenciamento);
-
         return view('gerenciamentos.edit', compact('gerenciamento'));
     }
 
     public function update(Request $request, $id){
         $gerenciamento = Gerenciamento::find($id);
         $gerenciamento->update($request->all());
+
+        Pastagem::where('IDPASTAGEM', $request->get('IDPASTAGEM'))->update(['DALIBERACAO' => date('Y-m-d', strtotime(date('Y-m-d'). ' + 15 days'))]);
 
         //Cria gerenciamento_vacinas
         $arrVacinas = $request->vacinas;
@@ -90,13 +74,27 @@ class GerenciamentoController extends Controller
         }
 
         return redirect()->route('gerenciamentos');
-
-
-
-        return redirect()->route('lotes');
     }
 
-    
+    public function finalizar($id){
+        Gerenciamento::where('IDGERENCIAMENTO', $id)->update(['FLATIVO' => 'N']);
+        $gerenciamento = Gerenciamento::where('IDGERENCIAMENTO', $id)->first();
 
+        Lote::where('IDLOTE', $gerenciamento->IDLOTE)->update(['FLATIVO' => 'N']);
 
+        return redirect()->route('gerenciamentos');
+    }
+
+    public function destroy($id){
+        try {
+		    Gerenciamento::find($id)->delete();
+			$ret = array('status'=>200, 'msg'=>"null");
+		} catch (\Illuminate\Database\QueryException $e) {
+			$ret = array('status'=>500, 'msg'=>$e->getMessage());
+		} 
+		catch (\PDOException $e) {
+			$ret = array('status'=>500, 'msg'=>$e->getMessage());
+		}
+		return $ret;
+    }
 }

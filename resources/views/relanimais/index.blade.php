@@ -6,24 +6,24 @@
     <div class="card-header">
         <div class="col-lg-12 margin-tb" style='display: flex; justify-content: space-between;'>
             <div class="pull-left">
-                <h2>Relatório de Gestações</h2>
+                <h2>Relatório de Animais</h2>
             </div>
         </div>
     </div>
     <div class="card-body">
 
-        {!! Form::open(['name'=>'form_name', 'route'=>'relgestacoes']) !!}
+        {!! Form::open(['name'=>'form_name', 'route'=>'relanimais']) !!}
             <div calss="sidebar-form">
                 <div class="input-group">
                     <div class="col-xs-2 col-sm-2 col-md-2">
                         <div class="form-group">
-                            {!! Form::label('TPCUIDADO', 'Cuidado')!!}
-                            {!! Form::select('TPCUIDADO', ['B'=>'Baixo', 'M'=>'Médio', 'A'=>'Alto'], null, ['class'=>'form-control', 'required', 'placeholder'=>'Selecione:']) !!}                
+                            {!! Form::label('IDLOTE', 'Lote')!!}
+                            {!! Form::select('IDLOTE', App\Models\Lote::where("FLATIVO", 'S')->orderBy('NMLOTE')->pluck('NMLOTE', 'IDLOTE')->toArray(), null, ['class'=>'form-control', 'required', 'placeholder'=>'Selecione:']) !!}                
                         </div>
                     </div>
                     <span class="input-group-btn">
                         <button type="submit" class="btn" name="search" id="btn-principal" style="margin-top: 12px; padding: 2px 20px;"><i class="fa fa-search"></i>&nbsp;Filtrar</button>
-                        <a class="btn"  id="btn-principal" href="{{ route('relgestacoes.exportacao') }}" style="margin-top: 12px;   padding: 2px 20px;"><i class="fa fa-download"></i>&nbsp;Exportar</a>
+                        <a class="btn"  id="btn-principal" href="{{ route('relanimais.exportacao') }}" style="margin-top: 12px; padding: 2px 20px; "><i class="fa fa-download"></i>&nbsp;Exportar</a>
 
                     </span>
                 </div>
@@ -37,18 +37,18 @@
                 <tr>
                     <th>Animal</th>
                     <th>Lote</th>
-                    <th>Cuidado</th>
-                    <th>Nascimento Estimado</th>
+                    <th>Raça</th>
+                    <th>Dias Vívidos</th>
                 </tr>
             </thead>
             <tbody>
-                @if(!$arrRelGestacoes->isEmpty())
-                    @foreach($arrRelGestacoes as $gestacao)  
+                @if(!$arrAnimais->isEmpty())
+                    @foreach($arrAnimais as $animal)  
                         <tr>
-                            <td>{{ $gestacao->CODANIMAL}}</td>
-                            <td>{{ $gestacao->NMLOTE == '' ? 'Sem Lote' : $gestacao->NMLOTE}}</td>
-                            <td>{{ $gestacao->DSTPCUIDADO}}</td>
-                            <td>{{ Carbon\Carbon::parse($gestacao->DANASCIMENTOESTIMADO)->format('d/m/Y') }}</td>
+                            <td>{{ $animal->CODANIMAL}}</td>
+                            <td>{{ $animal->NMLOTE == '' ? 'Sem Lote' : $animal->NMLOTE}}</td>
+                            <td>{{ $animal->NMRACA}}</td>
+                            <td>{{ $animal->QTDIASVIVIDOS}}</td>
                         </tr>
                     @endforeach
                 @else
@@ -59,6 +59,6 @@
             </tbody>
         </table>
     </div>
-    {{ $arrRelGestacoes->links("pagination::bootstrap-4") }}
+    {{ $arrAnimais->links("pagination::bootstrap-4") }}
 </div>
 @stop

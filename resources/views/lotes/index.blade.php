@@ -19,7 +19,7 @@
                 <tr>
                     <th>Cód.</th>
                     <th>Nome</th>
-                    <th>Descrição</th>
+                    <th>Dt. Criação</th>
                     <th width="10%">Ações</th>
                 </tr>
             </thead>

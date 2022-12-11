@@ -14,9 +14,10 @@ class RelVacinaController extends Controller
         if ($filtragem == null) {
     		$arrVacinas = \DB::table('gerenciamento')
 	            ->join('gerenciamento_vacinas', 'gerenciamento.IDGERENCIAMENTO', '=', 'gerenciamento_vacinas.IDGERENCIAMENTO')
-                ->join('vacinas', 'vacinas.IDVACINA', '=', 'gerenciamento_vacinas.IDVACINA')
-                ->join('lote', 'gerenciamento.IDLOTE', '=', 'lote.IDLOTE')
-	            ->select('gerenciamento_vacinas.DTAPLICACAO', 'vacinas.NMVACINA', 'lote.NMLOTE', 'vacinas.DSFINALIDADE')
+              ->join('vacinas', 'vacinas.IDVACINA', '=', 'gerenciamento_vacinas.IDVACINA')
+              ->join('lote', 'gerenciamento.IDLOTE', '=', 'lote.IDLOTE')
+	            ->select('gerenciamento_vacinas.DTAPLICACAO', 'vacinas.NMVACINA', 'lote.NMLOTE', 'vacinas.DSFINALIDADE', 'vacinas.QTDOSE')
+              ->where('gerenciamento.FLATIVO', '!=', 'N')
 	            ->paginate(20);
         }
         else
@@ -24,8 +25,9 @@ class RelVacinaController extends Controller
                     ->join('gerenciamento_vacinas', 'gerenciamento.IDGERENCIAMENTO', '=', 'gerenciamento_vacinas.IDGERENCIAMENTO')
                     ->join('vacinas', 'vacinas.IDVACINA', '=', 'gerenciamento_vacinas.IDVACINA')
                     ->join('lote', 'gerenciamento.IDLOTE', '=', 'lote.IDLOTE')
-                    ->select('gerenciamento_vacinas.DTAPLICACAO', 'vacinas.NMVACINA', 'lote.NMLOTE', 'vacinas.DSFINALIDADE')
+                    ->select('gerenciamento_vacinas.DTAPLICACAO', 'vacinas.NMVACINA', 'lote.NMLOTE', 'vacinas.DSFINALIDADE', 'vacinas.QTDOSE')
                     ->where('gerenciamento.IDLOTE', '=', $filtragem)
+                    ->where('gerenciamento.FLATIVO', '!=', 'N')
                     ->paginate(20)
                     ->setpath('relvacinas?IDLOTE='.$filtragem);
         					
@@ -38,3 +40,5 @@ class RelVacinaController extends Controller
 	}
 
 }
+
+

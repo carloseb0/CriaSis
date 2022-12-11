@@ -1,3 +1,7 @@
+<?php 
+use App\Models\LoteAnimal;
+?>
+
 @extends('layouts.default')
 @section('content')
 <link href="{{ asset('../css/padrao.css') }}" rel="stylesheet">
@@ -38,6 +42,7 @@
                     <th>Pastagem</th>
                     <th>Lote Animais</th>
                     <th>Cultura</th>
+                    <th>Qt. Animais</th>
                     <th>Dt. Liberaçao</th>
                 </tr>
             </thead>
@@ -48,6 +53,7 @@
                             <td>{{ $pastagem->NMPASTAGEM}}</td>
                             <td>{{ $pastagem->NMLOTE}}</td>
                             <td>{{ $pastagem->DSTPCULTURA}}</td>
+                            <td>{{LoteAnimal::where('IDLOTE', '=', $pastagem->IDLOTE)->count()}}</td>
                             <td>{{ Carbon\Carbon::parse($pastagem->DALIBERACAO)->format('d/m/Y') }}</td>
                         </tr>
                     @endforeach

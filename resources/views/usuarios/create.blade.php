@@ -20,7 +20,7 @@
         </ul>
     @endif
 
-    {!! Form::open(['url'=>'vacinas/store']) !!}
+    {!! Form::open(['url'=>'usuarios/store']) !!}
     <div class="card-body">
         <div class="row" style='  display: flex; flex-direction: column; align-items: center;'> 
             <div class="col-xs-4 col-sm-4 col-md-4">

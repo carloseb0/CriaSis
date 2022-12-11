@@ -78,8 +78,6 @@ class LoteController extends Controller
             }
         }
 
-
-
         return redirect()->route('lotes');
     }
 }

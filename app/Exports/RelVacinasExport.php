@@ -12,6 +12,14 @@ class RelVacinasExport implements FromCollection
     */
     public function collection()
     {
-        return Vacina::all();
+        $arrVacinas = \DB::table('gerenciamento')
+                    ->join('gerenciamento_vacinas', 'gerenciamento.IDGERENCIAMENTO', '=', 'gerenciamento_vacinas.IDGERENCIAMENTO')
+                    ->join('vacinas', 'vacinas.IDVACINA', '=', 'gerenciamento_vacinas.IDVACINA')
+                    ->join('lote', 'gerenciamento.IDLOTE', '=', 'lote.IDLOTE')
+                    ->select('gerenciamento_vacinas.DTAPLICACAO', 'vacinas.NMVACINA', 'lote.NMLOTE', 'vacinas.QTDOSE')
+                    ->where('gerenciamento.FLATIVO', '!=', 'N')
+                    ->paginate(20);
+
+        return $arrVacinas;
     }
 }

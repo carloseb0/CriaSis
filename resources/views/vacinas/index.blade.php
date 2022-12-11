@@ -19,7 +19,6 @@
                 <tr>
                     <th>Cód.</th>
                     <th>Nome</th>
-                    <th>Finalidade</th>
                     <th>Dose</th>
                     <th>Dt. Validade</th>
                     <th width="10%">Ações</th>
@@ -31,7 +30,6 @@
                         <tr>
                             <td>{{ $vacina->IDVACINA}}</td>
                             <td>{{ $vacina->NMVACINA}}</td>
-                            <td>{{ $vacina->DSFINALIDADE}}</td>
                             <td>{{ $vacina->QTDOSE}}</td>
                             <td>{{ Carbon\Carbon::parse($vacina->DAVALIDADE)->format('d/m/Y') }}</td>
                             <td style="display: flex; justify-content: center; padding: 9px;">

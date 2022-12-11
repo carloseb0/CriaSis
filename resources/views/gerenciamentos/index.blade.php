@@ -34,7 +34,8 @@
                             <td>{{ $gerenciamento->dieta->NMDIETA}}</td>
                             <td style="display: flex; justify-content: center; padding: 9px;">
                                 <a href="{{ route('gerenciamentos.edit', ['id'=>$gerenciamento->IDGERENCIAMENTO]) }}" id="btn-tarefas" title='Editar' class="fa fa-edit" style="margin-right: 10px"></a>
-                                <a href="#" onclick="return ConfirmaExclusao({{$gerenciamento->IDGERENCIAMENTO}})" class="fa fa-trash"id="btn-tarefas" title="Remover"></a>
+                                <a href="#" onclick="return ConfirmaExclusaoGerenciamento({{$gerenciamento->IDGERENCIAMENTO}})" class="fa fa-trash"id="btn-tarefas" title="Remover"></a>
+                                <a href="#" onclick="return ConfirmaFinalizar({{$gerenciamento->IDGERENCIAMENTO}})" class="fa fa-check" id="btn-tarefas" title='Finalizar Gerencimento'></a>
                             </td>
                         </tr>
                     @endforeach
@@ -51,5 +52,9 @@
 @stop
 
 @section('table-delete')
+"gerenciamentos"
+@endsection
+
+@section('table-finaliza')
 "gerenciamentos"
 @endsection
