@@ -14,21 +14,13 @@
         }).then(function(isConfirm) {
             if(isConfirm.value){
                 $.get('/'+@yield('table-delete') + '/'+id+'/destroy', function(data){
-                    if(data.status == 200){
-                        swal.fire(
-                            "Deletado!",
-                            "Exclusão confirmada.",
-                            "success"
-                        ).then(function(){
-                            window.location.reload();
-                        })
-                    }else{
-                        swal.fire(
-                            "Erro!",
-                            "Ocorreram erros na exclusão, Contate um administrador!",
-                            "error"
-                        )
-                    }
+                    swal.fire(
+                        "Deletado!",
+                        "Exclusão confirmada.",
+                        "success"
+                    ).then(function(){
+                        window.location.reload();
+                    })
                 })
             }           
         })
@@ -94,7 +86,7 @@
 
     function ConfirmaFinalizar(id) {
             swal.fire({
-                title: 'Confirma a Finalização?',
+                title: 'Encerrar Gerenciamento?',
                 text: "Esta Ação Não Pode Ser Desfeita!",
                 type: 'warning', showCancelButton: true,
                 confirmButtonColor: '#3085d6', confirmButtonText: 'Sim, Finalizar!',
@@ -103,7 +95,7 @@
             }).then(function(isConfirm) {
                 if (isConfirm.value) {
                     $.get('/' + @yield('table-finaliza') + '/' + id + '/finalizar',function(data) {
-                        swal.fire('Finalizado!', 'Registro Finalizado Com Sucesso.', 'success'
+                        swal.fire('Finalizado!', 'Gerenciamento Finalizado', 'success'
                         ).then(function() {
                             window.location.reload();
                         });
@@ -111,6 +103,35 @@
                 }
             })
         }
+
+    function ConfirmaExclusaoAnimal(id){
+        swal.fire({
+            title: 'Confirma a exclusão?', text: "Esta ação não poderá ser revertida!",
+            type: 'warning', showCancelButton: true, confirmButtonColor: "#3085d6",
+            concelButtonColor: '#d33', confirmButtonText: "Sim, excluir!",
+            cancelButtonText: "Cancelar!", closeOnConfirm: false,
+        }).then(function(isConfirm) {
+            if(isConfirm.value){
+                $.get('/'+@yield('table-delete') + '/'+id+'/destroy', function(data){
+                    if(data.status == 200){
+                        swal.fire(
+                            "Deletado!",
+                            "Exclusão confirmada.",
+                            "success"
+                        ).then(function(){
+                            window.location.reload();
+                        })
+                    }else{
+                        swal.fire(
+                            "Erro!",
+                            "Animal Vinculado a um lote",
+                            "error"
+                        )
+                    }
+                })
+            }           
+        })
+    }
 
 </script>
 @stop

@@ -34,7 +34,7 @@
                             <td>{{ Carbon\Carbon::parse($animal->DANASCIMENTO)->format('d/m/Y')}}</td>
                             <td style="display: flex; justify-content: center; padding: 8px;">
                                 <a href="{{ route('animais.edit', ['id'=>$animal->IDANIMAL]) }}" title='Editar' class="fa fa-edit" id="btn-tarefas" style="margin-right: 10px"></a>
-                                <a href="#" onclick="return ConfirmaExclusao({{$animal->IDANIMAL}})" class="fa fa-trash" id="btn-tarefas" title="Remover"></a>
+                                <a href="#" onclick="return ConfirmaExclusaoAnimal({{$animal->IDANIMAL}})" class="fa fa-trash" id="btn-tarefas" title="Remover"></a>
                             </td>
                         </tr>
                     @endforeach

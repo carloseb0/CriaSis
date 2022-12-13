@@ -8,7 +8,7 @@ use App\Models\User;
 class UsuariosController extends Controller
 {
     public function index(){
-        $arrUsuarios = User::orderBy('name')->paginate(10);
+        $arrUsuarios = User::where('id', "!=", 0)->orderBy('id')->paginate(15);
 
         return view('usuarios.index', ['arrUsuarios'=>$arrUsuarios]);
     }

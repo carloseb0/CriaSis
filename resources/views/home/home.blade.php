@@ -76,7 +76,9 @@ use App\Models\LoteAnimal;
                             <a href="{{ route('relpastagens') }}" class="small-box-footer bg-success" title="Gerenciar"><i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
+                </div>
 
+                <div class="row" style='display: flex; justify-content: space-evenly;'>
                     <div class="col-lg-4 col-4">
                         <!-- small box -->
                         <div class="small-box">
@@ -110,7 +112,7 @@ use App\Models\LoteAnimal;
                             <a href="{{ route('gerenciamentos') }}" class="small-box-footer bg-success" title="Gerenciar"><i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-
+            
                     <div class="col-lg-4 col-4">
                         <!-- small box -->
                         <div class="small-box">
@@ -144,7 +146,8 @@ use App\Models\LoteAnimal;
                             <a href="{{ route('relvacinas') }}" class="small-box-footer bg-success" title="Gerenciar"><i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-
+                </div>
+                <div class="row" style='display: flex; justify-content: space-evenly;'>
                     <div class="col-lg-4 col-4">
                         <!-- small box -->
                         <div class="small-box">
@@ -212,6 +215,8 @@ use App\Models\LoteAnimal;
                             <a href="{{ route('lotes') }}" class="small-box-footer bg-success" title="Gerenciar"><i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
+
+                </div>
 
                 </div>
             </div>

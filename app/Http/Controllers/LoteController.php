@@ -70,11 +70,11 @@ class LoteController extends Controller
 
         $arrAnimais = $request->animais;
         if(!empty($arrAnimais)){
-            foreach($arrAnimais as $idAnimal => $value) {
-                LoteAnimal::update([
-                                'IDLOTE' => $lote->IDLOTE,
-                                'IDANIMAL' => $arrAnimais[$idAnimal]
-                            ])->where($lote->IDLOTE);
+            foreach($arrAnimais as $key => $idAnimal) {
+                LoteAnimal::create([
+                    'IDLOTE' => $id,
+                    'IDANIMAL' => $idAnimal,
+                ]);
             }
         }
 

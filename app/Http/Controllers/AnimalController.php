@@ -16,7 +16,7 @@ class AnimalController extends Controller
                                             THEN "Macho"
                                         ELSE "Fêmea"
                                         END) AS DSTPSEXO'))
-                                ->paginate(10);
+                                ->paginate(20);
 
         return view('animais.index', ['arrAnimais'=>$arrAnimais]);
     }
@@ -33,7 +33,16 @@ class AnimalController extends Controller
     }
 
     public function destroy($id){
-        Animal::where('IDANIMAL', $id)->delete();
+        try {
+		    Animal::where('IDANIMAL', $id)->delete();
+			$ret = array('status'=>200, 'msg'=>"null");
+		} catch (\Illuminate\Database\QueryException $e) {
+			$ret = array('status'=>500, 'msg'=>$e->getMessage());
+		} 
+		catch (\PDOException $e) {
+			$ret = array('status'=>500, 'msg'=>$e->getMessage());
+		}
+		return $ret;
 
         return redirect()->route('animais');
     }
