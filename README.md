@@ -11,4 +11,5 @@ Requisitos mínimos para o desenvolvimento do sistema:
 - A base de dados deve ser projetada utilizando migrations;
 
 Tecnologias utilizadas:
+
 O software foi desenvolvido usando PHP 8 e Laravel 9. Como banco de dados, foi utilizado o MySQL, e no frontend foi utilizado o próprio Blade do Laravel.
